@@ -33,8 +33,19 @@
   align-items: center;
   gap: 10px;
   cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+
+.navitem:hover {
+  background-color: red;
+  background: linear-gradient(130deg, brown, red);
 }
 
 .icon {
   width: 25px;
+}
+
+.active {
+  background-color: red;
+  background: linear-gradient(130deg, brown, red);
 }
