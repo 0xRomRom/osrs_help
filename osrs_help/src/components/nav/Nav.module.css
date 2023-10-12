@@ -3,6 +3,7 @@
   width: 250px;
   border-radius: 0.5rem;
   border: 2px solid rgb(191, 47, 42);
+  height: 500px;
 }
 
 .logo {
@@ -48,4 +49,5 @@
 .active {
   background-color: red;
   background: linear-gradient(130deg, brown, red);
+  transition: all 0.5s ease-in-out;
 }
