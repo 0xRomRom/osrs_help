@@ -1,6 +1,13 @@
 .nav {
   position: relative;
-  width: 300px;
-  height: 500px;
-  background-color: brown;
+  width: 250px;
+  height: 700px;
+  border-radius: 0.5rem;
+  border: 2px solid rgb(191, 47, 42);
+}
+
+.logo {
+  display: block;
+  width: 90%;
+  margin: 0.5rem auto 0;
 }
