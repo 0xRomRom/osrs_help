@@ -11,7 +11,10 @@ const Home = () => {
       <img src={welcometxt} alt="Welcome Text" className={stl.welcometxt} />
       <div className={stl.modalbottom}>
         <p className={stl.introtext}>
-          A central place for Oldschool Runescape tools.
+          A central place for OSRS tools.
+          <br />
+          <br />
+          Get started quickly by fetching your account stats.
         </p>
         <div className={stl.userbox}>
           <div>

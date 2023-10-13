@@ -31,26 +31,28 @@
   color: white;
   font-size: 18px;
   padding: 2rem;
-  width: 50%;
+  width: 40%;
 }
 
 .modalbottom {
   position: relative;
   display: flex;
-  padding-top: 1rem;
 }
 
 .userbox {
-  width: 50%;
+  width: 75%;
+  height: 18rem;
   padding: 3rem;
-  border: 1px solid blue;
+  padding-left: 8.5rem;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
-  background: url("../../../assets/wallpapers/Login.webp");
-  height: 14rem;
+  background: url("../../../assets/wallpapers/Loginscreen.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
   margin-right: 0.5rem;
+  border-radius: 0.2rem;
 }
 
 .loginbg {
@@ -62,31 +64,41 @@
 .nameinput {
   position: relative;
   z-index: 10;
-  margin-left: 0.5rem;
+  margin-left: 0.4rem;
   height: 2rem;
   background-color: transparent;
   border: none;
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid rgb(211, 210, 210);
   outline: none;
   color: white;
   padding-left: 0.2rem;
+  font-size: 14px;
+  width: 5.5rem;
 }
 
 label {
   position: relative;
   z-index: 10;
-  color: white;
+  color: rgb(221, 218, 218);
 }
 
 .cta {
-  padding: 0.3rem 3rem;
+  padding: 0.3rem 1.2rem;
   background-color: transparent;
   outline: none;
   border: none;
   color: white;
   cursor: pointer;
-  margin-left: 5.5rem;
+  margin-left: 2.7rem;
   top: 1rem;
   position: relative;
-  background: linear-gradient(130deg, brown, red);
+  /* background: linear-gradient(130deg, brown, red); */
+  border-radius: 0.2rem;
+  color: white;
+  background-color: transparent;
+  border: 2px solid black;
+}
+
+.cta:active {
+  background-color: black;
 }
