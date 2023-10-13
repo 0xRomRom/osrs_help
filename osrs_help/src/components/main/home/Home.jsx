@@ -1,8 +1,16 @@
+import React, { useRef } from "react";
 import stl from "./Home.module.css";
+
 import barrows from "../../../assets/wallpapers/Barrows.webp";
 import welcometxt from "../../../assets/Welcometxt.png";
 
 const Home = () => {
+  const usernameRef = useRef(null);
+
+  const fetchUserData = () => {
+    console.log(usernameRef.current.value);
+  };
+
   return (
     <div className={stl.modal}>
       <div className={stl.imageBox}>
@@ -17,11 +25,15 @@ const Home = () => {
           Get started quickly by fetching your account stats.
         </p>
         <div className={stl.userbox}>
-          <div>
-            <label>Username:</label>
-            <input type="text" className={stl.nameinput} />
-          </div>
-          <button className={stl.cta}>Get stats</button>
+          <form>
+            <label>
+              Username:
+              <input type="text" className={stl.nameinput} ref={usernameRef} />
+            </label>
+          </form>
+          <button className={stl.cta} onClick={fetchUserData}>
+            Get stats
+          </button>
         </div>
       </div>
     </div>
