@@ -8,25 +8,41 @@ const LoginBox = (props) => {
   const updateSkills = (data) => {
     let currentStats = {};
     const skillsArray = data.split(/\n/);
-    console.log(skillsArray);
+
+    // console.log(skillsArray);
     let filteredSkills = [];
-    for (let i = 0; i < 24; i++) {
+    for (let i = 0; i < 23; i++) {
       const value = skillsArray[i].split(",")[1];
       filteredSkills.push(value);
     }
-    console.log(filteredSkills);
-    // console.log(data);
-    // console.log(skillsArray);
-    // for (let i = 0; i < 72; i++) {
-    //   if (skillsArray[i] > 1 && skillsArray[i] < 5000) {
-    //     filteredSkills.push(skillsArray[i]);
-    //   }
-    // }
-    console.log(filteredSkills);
+    // console.log(filteredSkills);
 
-    // for (let i = 0; i < 72; i++) {
-    //   currentStats[playerStats[i]] = skillsArray[i];
-    // }
+    for (let i = 0; i < 23; i++) {
+      currentStats[playerStats[i]] = filteredSkills[i];
+    }
+
+    // console.log(currentStats);
+    props.setSkills(currentStats);
+  };
+
+  const updateSkillsExp = (data) => {
+    let currentStats = {};
+    const skillsArray = data.split(/\n/);
+
+    // console.log(skillsArray);
+    let filteredSkills = [];
+    for (let i = 0; i < 23; i++) {
+      const value = skillsArray[i].split(",")[2];
+      filteredSkills.push(value);
+    }
+    // console.log(filteredSkills);
+
+    for (let i = 0; i < 23; i++) {
+      currentStats[playerStats[i]] = filteredSkills[i];
+    }
+
+    // console.log(currentStats);
+    props.setSkillsExp(currentStats);
   };
 
   const fetchUserData = async (e) => {
@@ -48,8 +64,9 @@ const LoginBox = (props) => {
         }
       );
       const data = await fetcher.json();
-      props.setSkills(data.result);
+
       updateSkills(data.result);
+      updateSkillsExp(data.result);
     } catch (err) {
       console.error(err);
     }

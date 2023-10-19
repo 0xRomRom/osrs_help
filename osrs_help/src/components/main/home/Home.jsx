@@ -9,14 +9,16 @@ import UserBox from "./userbox/UserBox";
 
 const Home = () => {
   const [skills, setSkills] = useState(null);
+  const [skillsExp, setSkillsExp] = useState(null);
   const [skillsFetched, setSkillsFetched] = useState(false);
 
   useEffect(() => {
-    if (skills) {
-      // console.log(skills);
+    if (skills || skillsExp) {
+      console.log(skills);
+      console.log(skillsExp);
       setSkillsFetched(true);
     }
-  }, [skills]);
+  }, [skills, skillsExp]);
 
   return (
     <div className={stl.modal}>
@@ -31,7 +33,7 @@ const Home = () => {
           <br />
           Get started quickly by fetching your account stats.
         </p>
-        <LoginBox setSkills={setSkills} skills={skills} />
+        <LoginBox setSkills={setSkills} setSkillsExp={setSkillsExp} />
         {/* <UserBox /> */}
       </div>
     </div>
