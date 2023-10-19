@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import stl from "./Home.module.css";
 
 import barrows from "../../../assets/wallpapers/Barrows.webp";
@@ -6,9 +6,34 @@ import welcometxt from "../../../assets/Welcometxt.png";
 
 const Home = () => {
   const usernameRef = useRef(null);
+  const [skills, setSkills] = useState(null);
 
-  const fetchUserData = () => {
-    console.log(usernameRef.current.value);
+  useEffect(() => {
+    console.log(skills);
+  }, [skills]);
+
+  const fetchUserData = async () => {
+    const user = usernameRef.current.value;
+    if (!user) return;
+    const filteredUser = user.replaceAll(" ", "_");
+    const obj = { user: filteredUser };
+    try {
+      const fetcher = await fetch(
+        "http://localhost:9000/.netlify/functions/api",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(obj),
+        }
+      );
+      const data = await fetcher.json();
+      console.log(data.result);
+      setSkills(data.result);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
