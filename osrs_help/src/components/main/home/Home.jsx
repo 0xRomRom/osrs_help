@@ -4,37 +4,19 @@ import stl from "./Home.module.css";
 import barrows from "../../../assets/wallpapers/Barrows.webp";
 import welcometxt from "../../../assets/Welcometxt.png";
 
+import LoginBox from "./loginbox/LoginBox";
+import UserBox from "./userbox/UserBox";
+
 const Home = () => {
-  const usernameRef = useRef(null);
   const [skills, setSkills] = useState(null);
+  const [skillsFetched, setSkillsFetched] = useState(false);
 
   useEffect(() => {
-    console.log(skills);
-  }, [skills]);
-
-  const fetchUserData = async () => {
-    const user = usernameRef.current.value;
-    if (!user) return;
-    const filteredUser = user.replaceAll(" ", "_");
-    const obj = { user: filteredUser };
-    try {
-      const fetcher = await fetch(
-        "http://localhost:9000/.netlify/functions/api",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(obj),
-        }
-      );
-      const data = await fetcher.json();
-      console.log(data.result);
-      setSkills(data.result);
-    } catch (err) {
-      console.error(err);
+    if (skills) {
+      console.log(skills);
+      setSkillsFetched(true);
     }
-  };
+  }, [skills]);
 
   return (
     <div className={stl.modal}>
@@ -49,17 +31,8 @@ const Home = () => {
           <br />
           Get started quickly by fetching your account stats.
         </p>
-        <div className={stl.userbox}>
-          <form>
-            <label>
-              Username:
-              <input type="text" className={stl.nameinput} ref={usernameRef} />
-            </label>
-          </form>
-          <button className={stl.cta} onClick={fetchUserData}>
-            Get stats
-          </button>
-        </div>
+        {/* <LoginBox setSkills={setSkills} /> */}
+        <UserBox />
       </div>
     </div>
   );
