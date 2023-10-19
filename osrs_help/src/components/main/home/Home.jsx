@@ -13,7 +13,7 @@ const Home = () => {
 
   useEffect(() => {
     if (skills) {
-      console.log(skills);
+      // console.log(skills);
       setSkillsFetched(true);
     }
   }, [skills]);
@@ -31,8 +31,8 @@ const Home = () => {
           <br />
           Get started quickly by fetching your account stats.
         </p>
-        {/* <LoginBox setSkills={setSkills} /> */}
-        <UserBox />
+        <LoginBox setSkills={setSkills} skills={skills} />
+        {/* <UserBox /> */}
       </div>
     </div>
   );
