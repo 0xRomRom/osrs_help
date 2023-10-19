@@ -26,6 +26,13 @@
 }
 
 .playerImg {
-  height: calc(100% - 50px);
+  height: calc(100% - 80px);
   position: relative;
+}
+
+.combatlvl {
+  color: white;
+  display: block;
+  text-align: center;
+  font-size: 20px;
 }

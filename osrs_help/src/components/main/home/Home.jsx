@@ -10,7 +10,7 @@ import UserBox from "./userbox/UserBox";
 const Home = () => {
   const [skills, setSkills] = useState(null);
   const [skillsExp, setSkillsExp] = useState(null);
-  const [skillsFetched, setSkillsFetched] = useState(true);
+  const [skillsFetched, setSkillsFetched] = useState(false);
 
   useEffect(() => {
     if (skills || skillsExp) {
@@ -35,7 +35,7 @@ const Home = () => {
         </p>
 
         {skillsFetched ? (
-          <UserBox />
+          <UserBox skills={skills} />
         ) : (
           <LoginBox setSkills={setSkills} setSkillsExp={setSkillsExp} />
         )}
