@@ -1,63 +1,31 @@
 .userbox {
   width: 75%;
   height: 18rem;
-  padding: 3rem;
-  padding-left: 8.5rem;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
-  background: url("../../../../assets/wallpapers/Loginscreen.webp");
+  background: url("../../../../assets/wallpapers/Loginmodal.png");
   background-repeat: no-repeat;
   background-size: cover;
   margin-right: 0.5rem;
   border-radius: 0.2rem;
 }
 
-.loginbg {
+.leftblock {
   position: relative;
-  width: 100%;
+  width: 50%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-.nameinput {
-  position: relative;
-  z-index: 10;
-  margin-left: 0.4rem;
-  height: 2rem;
-  background-color: transparent;
-  border: none;
-  border-bottom: 2px solid rgb(211, 210, 210);
-  outline: none;
+.username {
   color: white;
-  padding-left: 0.2rem;
-  font-size: 14px;
-  width: 5.5rem;
+  display: block;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 20px;
 }
 
-label {
+.playerImg {
+  height: calc(100% - 50px);
   position: relative;
-  z-index: 10;
-  color: rgb(221, 218, 218);
-}
-
-.cta {
-  padding: 0.3rem 1.2rem;
-  background-color: transparent;
-  outline: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-  margin-left: 2.7rem;
-  top: 1rem;
-  position: relative;
-  /* background: linear-gradient(130deg, brown, red); */
-  border-radius: 0.2rem;
-  color: white;
-  background-color: transparent;
-  border: 2px solid black;
-}
-
-.cta:active {
-  background-color: black;
 }

@@ -9,19 +9,16 @@ const LoginBox = (props) => {
     let currentStats = {};
     const skillsArray = data.split(/\n/);
 
-    // console.log(skillsArray);
     let filteredSkills = [];
     for (let i = 0; i < 23; i++) {
       const value = skillsArray[i].split(",")[1];
       filteredSkills.push(value);
     }
-    // console.log(filteredSkills);
 
     for (let i = 0; i < 23; i++) {
       currentStats[playerStats[i]] = filteredSkills[i];
     }
 
-    // console.log(currentStats);
     props.setSkills(currentStats);
   };
 
@@ -29,19 +26,16 @@ const LoginBox = (props) => {
     let currentStats = {};
     const skillsArray = data.split(/\n/);
 
-    // console.log(skillsArray);
     let filteredSkills = [];
     for (let i = 0; i < 23; i++) {
       const value = skillsArray[i].split(",")[2];
       filteredSkills.push(value);
     }
-    // console.log(filteredSkills);
 
     for (let i = 0; i < 23; i++) {
       currentStats[playerStats[i]] = filteredSkills[i];
     }
 
-    // console.log(currentStats);
     props.setSkillsExp(currentStats);
   };
 

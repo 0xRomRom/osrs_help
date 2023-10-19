@@ -10,7 +10,7 @@ import UserBox from "./userbox/UserBox";
 const Home = () => {
   const [skills, setSkills] = useState(null);
   const [skillsExp, setSkillsExp] = useState(null);
-  const [skillsFetched, setSkillsFetched] = useState(false);
+  const [skillsFetched, setSkillsFetched] = useState(true);
 
   useEffect(() => {
     if (skills || skillsExp) {
@@ -33,8 +33,12 @@ const Home = () => {
           <br />
           Get started quickly by fetching your account stats.
         </p>
-        <LoginBox setSkills={setSkills} setSkillsExp={setSkillsExp} />
-        {/* <UserBox /> */}
+
+        {skillsFetched ? (
+          <UserBox />
+        ) : (
+          <LoginBox setSkills={setSkills} setSkillsExp={setSkillsExp} />
+        )}
       </div>
     </div>
   );
