@@ -43,6 +43,7 @@ const LoginBox = (props) => {
     e.preventDefault();
 
     const user = usernameRef.current.value;
+    props.setPlayerName(user);
     if (!user) return;
     const filteredUser = user.replaceAll(" ", "_");
     const obj = { user: filteredUser };

@@ -11,6 +11,7 @@ const Home = () => {
   const [skills, setSkills] = useState(null);
   const [skillsExp, setSkillsExp] = useState(null);
   const [skillsFetched, setSkillsFetched] = useState(false);
+  const [playerName, setPlayerName] = useState(null);
 
   useEffect(() => {
     if (skills || skillsExp) {
@@ -35,9 +36,13 @@ const Home = () => {
         </p>
 
         {skillsFetched ? (
-          <UserBox skills={skills} />
+          <UserBox skills={skills} playerName={playerName} />
         ) : (
-          <LoginBox setSkills={setSkills} setSkillsExp={setSkillsExp} />
+          <LoginBox
+            setSkills={setSkills}
+            setSkillsExp={setSkillsExp}
+            setPlayerName={setPlayerName}
+          />
         )}
       </div>
     </div>
