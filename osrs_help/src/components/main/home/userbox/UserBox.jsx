@@ -20,13 +20,8 @@ const UserBox = (props) => {
     const step2 = (hitpoints + defence + step1) / 4;
     const step3 = (strength + attack) * 0.325;
     const step4 = step2 + step3;
-    console.log(step4);
 
-    const maxMelee = "";
-    const combatLevel = "";
-    // return Math.floor(combatLevel);
-    const formatted = "";
-    setCmbLvl(step4);
+    setCmbLvl(step4.toFixed(1));
   };
 
   //pure 77.5 cmb
