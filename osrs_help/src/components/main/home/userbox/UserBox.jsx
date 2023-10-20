@@ -6,6 +6,7 @@ const UserBox = (props) => {
   const [cmbLvl, setCmbLvl] = useState(null);
 
   const calculateCombatLevel = () => {
+    console.log(props.skills);
     const skills = props.skills;
     const attack = +skills["attack"];
     const strength = +skills["strength"];
@@ -15,12 +16,21 @@ const UserBox = (props) => {
     const prayer = +skills["prayer"];
     const magic = +skills["magic"];
 
-    const maxMelee = Math.max(attack + strength, 2 * magic, 2 * ranged, prayer);
-    const combatLevel = maxMelee / 4 + defence / 2 + hitpoints / 4;
-    // return Math.floor(combatLevel);
+    const step1 = Math.floor(prayer / 2);
+    const step2 = (hitpoints + defence + step1) / 4;
+    const step3 = (strength + attack) * 0.325;
+    const step4 = step2 + step3;
+    console.log(step4);
 
-    setCmbLvl(Math.floor(combatLevel));
+    const maxMelee = "";
+    const combatLevel = "";
+    // return Math.floor(combatLevel);
+    const formatted = "";
+    setCmbLvl(step4);
   };
+
+  //pure 77.5 cmb
+  //main 108.3 cmb
 
   useEffect(() => {
     calculateCombatLevel();
