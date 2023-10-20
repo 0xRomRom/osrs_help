@@ -37,17 +37,22 @@ const UserBox = (props) => {
     setCmbLvl(cmb);
   };
 
-  //pure 77.5 cmb
-  //main 108.3 cmb
-
   useEffect(() => {
     calculateCombatLevel();
   }, [props.skills]);
 
+  const handleMenuSwitch = () => {
+    props.switchTab(false);
+  };
+
   return (
     <div className={stl.userbox}>
       <div className={stl.leftblock}>
-        <FontAwesomeIcon icon={faArrowLeft} className={stl.backArrow} />
+        <FontAwesomeIcon
+          icon={faArrowLeft}
+          className={stl.backArrow}
+          onClick={handleMenuSwitch}
+        />
         <span className={stl.username}>{props.playerName}</span>
         <img
           src={imageState}

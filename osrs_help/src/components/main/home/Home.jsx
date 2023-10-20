@@ -36,7 +36,11 @@ const Home = () => {
         </p>
 
         {skillsFetched ? (
-          <UserBox skills={skills} playerName={playerName} />
+          <UserBox
+            skills={skills}
+            playerName={playerName}
+            switchTab={setSkillsFetched}
+          />
         ) : (
           <LoginBox
             setSkills={setSkills}
