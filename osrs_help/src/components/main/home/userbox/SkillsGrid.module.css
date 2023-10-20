@@ -33,37 +33,37 @@
 
 .row2 {
   position: relative;
-  top: -1px;
+  top: 1px;
 }
 
 .row3 {
   position: relative;
-  top: -1px;
+  top: 1px;
 }
 
 .row4 {
   position: relative;
-  top: -1px;
+  top: 2px;
 }
 
 .row5 {
   position: relative;
-  top: -1px;
+  top: 2px;
 }
 
 .row6 {
   position: relative;
-  top: -1px;
+  top: 3px;
 }
 
 .row7 {
   position: relative;
-  top: 0px;
+  top: 4px;
 }
 
 .row8 {
   position: relative;
-  top: 1px;
+  top: 4px;
 }
 
 .lvlIcon {
@@ -103,4 +103,13 @@
   width: 20px;
   left: 7px;
   top: 4px;
+}
+
+.totalLvl {
+  font-family: RSFont;
+  color: yellow;
+  text-align: center;
+  font-size: 15px;
+  padding-left: 2px;
+  padding-top: 2px;
 }
