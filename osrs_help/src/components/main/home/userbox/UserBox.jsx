@@ -2,10 +2,13 @@ import stl from "./UserBox.module.css";
 import lvl1def from "../../../../assets/characters/1def.png";
 import lvl70def from "../../../../assets/characters/70def.png";
 import lvl99def from "../../../../assets/characters/99def.png";
+import skillsGrid from "../../../../assets/wallpapers/Skillsgrid.png";
 import { useState, useEffect } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+
+import attackIcon from "../../../../assets/skillicons/Attack.webp";
 
 const UserBox = (props) => {
   const [cmbLvl, setCmbLvl] = useState(null);
@@ -60,6 +63,65 @@ const UserBox = (props) => {
           className={stl.playerImg}
         />
         <span className={stl.combatlvl}>Combat Lvl: {cmbLvl}</span>
+      </div>
+      <div className={stl.rightblock}>
+        <div className={stl.renderedSkills}>
+          <div className={`${stl.skillRow} ${stl.row1}`}>
+            <div className={stl.skillLvl}>
+              <img
+                src={attackIcon}
+                alt="Attack Level"
+                className={stl.lvlIcon}
+              />
+              <div className={stl.lvlDiv}>
+                <span>70</span>
+                <span>70</span>
+              </div>
+            </div>
+            <div className={stl.skillLvl}></div>
+            <div className={stl.skillLvl}></div>
+          </div>
+          {/* <div className={`${stl.skillRow} ${stl.row2}`}>
+            <div className={stl.skillLvl}></div>
+            <div className={stl.skillLvl}></div>
+            <div className={stl.skillLvl}></div>
+          </div>
+          <div className={`${stl.skillRow} ${stl.row3}`}>
+            <div className={stl.skillLvl}></div>
+            <div className={stl.skillLvl}></div>
+            <div className={stl.skillLvl}></div>
+          </div>
+          <div className={`${stl.skillRow} ${stl.row4}`}>
+            <div className={stl.skillLvl}></div>
+            <div className={stl.skillLvl}></div>
+            <div className={stl.skillLvl}></div>
+          </div>
+          <div className={`${stl.skillRow} ${stl.row5}`}>
+            <div className={stl.skillLvl}></div>
+            <div className={stl.skillLvl}></div>
+            <div className={stl.skillLvl}></div>
+          </div>
+          <div className={`${stl.skillRow} ${stl.row6}`}>
+            <div className={stl.skillLvl}></div>
+            <div className={stl.skillLvl}></div>
+            <div className={stl.skillLvl}></div>
+          </div>
+          <div className={`${stl.skillRow} ${stl.row7}`}>
+            <div className={stl.skillLvl}></div>
+            <div className={stl.skillLvl}></div>
+            <div className={stl.skillLvl}></div>
+          </div>
+          <div className={`${stl.skillRow} ${stl.row8}`}>
+            <div className={stl.skillLvl}></div>
+            <div className={stl.skillLvl}></div>
+            <div className={stl.skillLvl}></div>
+          </div> */}
+        </div>
+        <img
+          src={skillsGrid}
+          alt="Skills background"
+          className={stl.skillsGrid}
+        />
       </div>
     </div>
   );
