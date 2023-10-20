@@ -65,7 +65,7 @@ const UserBox = (props) => {
         <span className={stl.combatlvl}>Combat Lvl: {cmbLvl}</span>
       </div>
       <div className={stl.rightblock}>
-        <SkillsGrid />
+        <SkillsGrid skills={props.skills} />
         <img
           src={skillsGrid}
           alt="Skills background"

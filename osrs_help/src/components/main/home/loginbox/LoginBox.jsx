@@ -49,7 +49,7 @@ const LoginBox = (props) => {
     const obj = { user: filteredUser };
     try {
       const fetcher = await fetch(
-        "http://localhost:9000/.netlify/functions/api",
+        "https://osrshiscoreapi.netlify.app/.netlify/functions/api",
         {
           method: "POST",
           headers: {

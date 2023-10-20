@@ -25,7 +25,7 @@ import constructionIcon from "../../../../assets/skillicons/Construction.webp";
 import hunterIcon from "../../../../assets/skillicons/Hunter.webp";
 import borderImg from "../../../../assets/skillicons/Border.png";
 
-const SkillsGrid = () => {
+const SkillsGrid = (props) => {
   return (
     <div className={stl.renderedSkills}>
       <div className={`${stl.skillRow} ${stl.row1}`}>
@@ -33,167 +33,195 @@ const SkillsGrid = () => {
           <img src={attackIcon} alt="Attack Level" className={stl.lvlIcon} />
           <div className={stl.lvlDiv}>
             <img src={borderImg} alt="Border" className={stl.borderImg} />
-            <span className={stl.upperLvl}>70</span>
-            <span className={stl.lowerLvl}>70</span>
+            <span className={stl.upperLvl}>{props.skills["attack"]}</span>
+            <span className={stl.lowerLvl}>{props.skills["attack"]}</span>
           </div>
         </div>
         <div className={stl.skillLvl}>
-          <img src={hitpointsIcon} alt="Attack Level" className={stl.lvlIcon} />
+          <img
+            src={hitpointsIcon}
+            alt="Hitpoints Level"
+            className={stl.lvlIcon}
+          />
           <div className={stl.lvlDiv}>
             <img src={borderImg} alt="Border" className={stl.borderImg} />
-            <span className={stl.upperLvl}>99</span>
-            <span className={stl.lowerLvl}>99</span>
+            <span className={stl.upperLvl}>{props.skills["hitpoints"]}</span>
+            <span className={stl.lowerLvl}>{props.skills["hitpoints"]}</span>
           </div>
         </div>
         <div className={stl.skillLvl}>
-          <img src={miningIcon} alt="Attack Level" className={stl.lvlIcon} />
+          <img src={miningIcon} alt="Mining Level" className={stl.lvlIcon} />
           <div className={stl.lvlDiv}>
             <img src={borderImg} alt="Border" className={stl.borderImg} />
-            <span className={stl.upperLvl}>99</span>
-            <span className={stl.lowerLvl}>99</span>
+            <span className={stl.upperLvl}>{props.skills["mining"]}</span>
+            <span className={stl.lowerLvl}>{props.skills["mining"]}</span>
           </div>
         </div>
       </div>
 
       <div className={`${stl.skillRow} ${stl.row2}`}>
         <div className={stl.skillLvl}>
-          <img src={strengthIcon} alt="Attack Level" className={stl.lvlIcon} />
+          <img
+            src={strengthIcon}
+            alt="Strength Level"
+            className={stl.lvlIcon}
+          />
           <div className={stl.lvlDiv}>
             <img src={borderImg} alt="Border" className={stl.borderImg} />
-            <span className={stl.upperLvl}>70</span>
-            <span className={stl.lowerLvl}>70</span>
+            <span className={stl.upperLvl}>{props.skills["strength"]}</span>
+            <span className={stl.lowerLvl}>{props.skills["strength"]}</span>
           </div>
         </div>
         <div className={stl.skillLvl}>
-          <img src={agilityIcon} alt="Attack Level" className={stl.lvlIcon} />
+          <img src={agilityIcon} alt="Agility Level" className={stl.lvlIcon} />
           <div className={stl.lvlDiv}>
             <img src={borderImg} alt="Border" className={stl.borderImg} />
-            <span className={stl.upperLvl}>99</span>
-            <span className={stl.lowerLvl}>99</span>
+            <span className={stl.upperLvl}>{props.skills["agility"]}</span>
+            <span className={stl.lowerLvl}>{props.skills["agility"]}</span>
           </div>
         </div>
         <div className={stl.skillLvl}>
-          <img src={smithingIcon} alt="Attack Level" className={stl.lvlIcon} />
+          <img
+            src={smithingIcon}
+            alt="Smithing Level"
+            className={stl.lvlIcon}
+          />
           <div className={stl.lvlDiv}>
             <img src={borderImg} alt="Border" className={stl.borderImg} />
-            <span className={stl.upperLvl}>99</span>
-            <span className={stl.lowerLvl}>99</span>
+            <span className={stl.upperLvl}>{props.skills["smithing"]}</span>
+            <span className={stl.lowerLvl}>{props.skills["smithing"]}</span>
           </div>
         </div>
       </div>
 
       <div className={`${stl.skillRow} ${stl.row3}`}>
         <div className={stl.skillLvl}>
-          <img src={defenceIcon} alt="Attack Level" className={stl.lvlIcon} />
+          <img src={defenceIcon} alt="Defence Level" className={stl.lvlIcon} />
           <div className={stl.lvlDiv}>
             <img src={borderImg} alt="Border" className={stl.borderImg} />
-            <span className={stl.upperLvl}>70</span>
-            <span className={stl.lowerLvl}>70</span>
+            <span className={stl.upperLvl}>{props.skills["defence"]}</span>
+            <span className={stl.lowerLvl}>{props.skills["defence"]}</span>
           </div>
         </div>
         <div className={stl.skillLvl}>
-          <img src={herbloreIcon} alt="Attack Level" className={stl.lvlIcon} />
+          <img
+            src={herbloreIcon}
+            alt="Herblore Level"
+            className={stl.lvlIcon}
+          />
           <div className={stl.lvlDiv}>
             <img src={borderImg} alt="Border" className={stl.borderImg} />
-            <span className={stl.upperLvl}>99</span>
-            <span className={stl.lowerLvl}>99</span>
+            <span className={stl.upperLvl}>{props.skills["herblore"]}</span>
+            <span className={stl.lowerLvl}>{props.skills["herblore"]}</span>
           </div>
         </div>
         <div className={stl.skillLvl}>
-          <img src={fishingIcon} alt="Attack Level" className={stl.lvlIcon} />
+          <img src={fishingIcon} alt="Fishing Level" className={stl.lvlIcon} />
           <div className={stl.lvlDiv}>
             <img src={borderImg} alt="Border" className={stl.borderImg} />
-            <span className={stl.upperLvl}>99</span>
-            <span className={stl.lowerLvl}>99</span>
+            <span className={stl.upperLvl}>{props.skills["fishing"]}</span>
+            <span className={stl.lowerLvl}>{props.skills["fishing"]}</span>
           </div>
         </div>
       </div>
 
       <div className={`${stl.skillRow} ${stl.row4}`}>
         <div className={stl.skillLvl}>
-          <img src={rangedIcon} alt="Attack Level" className={stl.lvlIcon} />
+          <img src={rangedIcon} alt="Ranged Level" className={stl.lvlIcon} />
           <div className={stl.lvlDiv}>
             <img src={borderImg} alt="Border" className={stl.borderImg} />
-            <span className={stl.upperLvl}>70</span>
-            <span className={stl.lowerLvl}>70</span>
+            <span className={stl.upperLvl}>{props.skills["ranged"]}</span>
+            <span className={stl.lowerLvl}>{props.skills["ranged"]}</span>
           </div>
         </div>
         <div className={stl.skillLvl}>
-          <img src={thievingIcon} alt="Attack Level" className={stl.lvlIcon} />
+          <img
+            src={thievingIcon}
+            alt="Thieving Level"
+            className={stl.lvlIcon}
+          />
           <div className={stl.lvlDiv}>
             <img src={borderImg} alt="Border" className={stl.borderImg} />
-            <span className={stl.upperLvl}>99</span>
-            <span className={stl.lowerLvl}>99</span>
+            <span className={stl.upperLvl}>{props.skills["thieving"]}</span>
+            <span className={stl.lowerLvl}>{props.skills["thieving"]}</span>
           </div>
         </div>
         <div className={stl.skillLvl}>
-          <img src={cookingIcon} alt="Attack Level" className={stl.lvlIcon} />
+          <img src={cookingIcon} alt="Cooking Level" className={stl.lvlIcon} />
           <div className={stl.lvlDiv}>
             <img src={borderImg} alt="Border" className={stl.borderImg} />
-            <span className={stl.upperLvl}>99</span>
-            <span className={stl.lowerLvl}>99</span>
+            <span className={stl.upperLvl}>{props.skills["cooking"]}</span>
+            <span className={stl.lowerLvl}>{props.skills["cooking"]}</span>
           </div>
         </div>
       </div>
 
       <div className={`${stl.skillRow} ${stl.row5}`}>
         <div className={stl.skillLvl}>
-          <img src={prayerIcon} alt="Attack Level" className={stl.lvlIcon} />
+          <img src={prayerIcon} alt="Prayer Level" className={stl.lvlIcon} />
           <div className={stl.lvlDiv}>
             <img src={borderImg} alt="Border" className={stl.borderImg} />
-            <span className={stl.upperLvl}>70</span>
-            <span className={stl.lowerLvl}>70</span>
+            <span className={stl.upperLvl}>{props.skills["prayer"]}</span>
+            <span className={stl.lowerLvl}>{props.skills["prayer"]}</span>
           </div>
         </div>
         <div className={stl.skillLvl}>
-          <img src={craftingIcon} alt="Attack Level" className={stl.lvlIcon} />
+          <img
+            src={craftingIcon}
+            alt="Crafting Level"
+            className={stl.lvlIcon}
+          />
           <div className={stl.lvlDiv}>
             <img src={borderImg} alt="Border" className={stl.borderImg} />
-            <span className={stl.upperLvl}>99</span>
-            <span className={stl.lowerLvl}>99</span>
+            <span className={stl.upperLvl}>{props.skills["crafting"]}</span>
+            <span className={stl.lowerLvl}>{props.skills["crafting"]}</span>
           </div>
         </div>
         <div className={stl.skillLvl}>
           <img
             src={firemakingIcon}
-            alt="Attack Level"
+            alt="Firemaking Level"
             className={stl.lvlIcon}
           />
           <div className={stl.lvlDiv}>
             <img src={borderImg} alt="Border" className={stl.borderImg} />
-            <span className={stl.upperLvl}>99</span>
-            <span className={stl.lowerLvl}>99</span>
+            <span className={stl.upperLvl}>{props.skills["firemaking"]}</span>
+            <span className={stl.lowerLvl}>{props.skills["firemaking"]}</span>
           </div>
         </div>
       </div>
 
       <div className={`${stl.skillRow} ${stl.row6}`}>
         <div className={stl.skillLvl}>
-          <img src={magicIcon} alt="Attack Level" className={stl.lvlIcon} />
+          <img src={magicIcon} alt="Magic Level" className={stl.lvlIcon} />
           <div className={stl.lvlDiv}>
             <img src={borderImg} alt="Border" className={stl.borderImg} />
-            <span className={stl.upperLvl}>70</span>
-            <span className={stl.lowerLvl}>70</span>
+            <span className={stl.upperLvl}>{props.skills["magic"]}</span>
+            <span className={stl.lowerLvl}>{props.skills["magic"]}</span>
           </div>
         </div>
         <div className={stl.skillLvl}>
-          <img src={fletchingIcon} alt="Attack Level" className={stl.lvlIcon} />
+          <img
+            src={fletchingIcon}
+            alt="Fletching Level"
+            className={stl.lvlIcon}
+          />
           <div className={stl.lvlDiv}>
             <img src={borderImg} alt="Border" className={stl.borderImg} />
-            <span className={stl.upperLvl}>99</span>
-            <span className={stl.lowerLvl}>99</span>
+            <span className={stl.upperLvl}>{props.skills["fletching"]}</span>
+            <span className={stl.lowerLvl}>{props.skills["fletching"]}</span>
           </div>
         </div>
         <div className={stl.skillLvl}>
           <img
             src={woodcuttingIcon}
-            alt="Attack Level"
+            alt="Woodcutting Level"
             className={stl.lvlIcon}
           />
           <div className={stl.lvlDiv}>
             <img src={borderImg} alt="Border" className={stl.borderImg} />
-            <span className={stl.upperLvl}>99</span>
-            <span className={stl.lowerLvl}>99</span>
+            <span className={stl.upperLvl}>{props.skills["woodcutting"]}</span>
+            <span className={stl.lowerLvl}>{props.skills["woodcutting"]}</span>
           </div>
         </div>
       </div>
@@ -202,13 +230,13 @@ const SkillsGrid = () => {
         <div className={stl.skillLvl}>
           <img
             src={runecraftingIcon}
-            alt="Attack Level"
+            alt="Runecrafting Level"
             className={stl.lvlIcon}
           />
           <div className={stl.lvlDiv}>
             <img src={borderImg} alt="Border" className={stl.borderImg} />
-            <span className={stl.upperLvl}>70</span>
-            <span className={stl.lowerLvl}>70</span>
+            <span className={stl.upperLvl}>{props.skills["runecraft"]}</span>
+            <span className={stl.lowerLvl}>{props.skills["runecraft"]}</span>
           </div>
         </div>
         <div className={stl.skillLvl}>
