@@ -10,7 +10,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 1.25rem;
+  gap: 1rem;
   flex-wrap: wrap;
   width: 100%;
   margin: 0.5rem 0rem;
@@ -18,15 +18,17 @@
 
 .skill {
   width: 47%;
-  height: 2.2rem;
+  height: 2.5rem;
   border-radius: 0.4rem;
   border: 1px solid red;
+  cursor: pointer;
 }
 
 .iconImg {
   position: absolute;
-  margin-top: 0.2rem;
   margin-left: 1rem;
+  height: 22px;
+  margin-top: 7px;
 }
 
 .skillName {
