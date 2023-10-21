@@ -38,7 +38,6 @@ const LoginBox = (props) => {
       currentStats[playerStats[i]] = filteredSkills[i];
     }
 
-    console.log(currentStats);
     props.setSkillsExp(currentStats);
   };
 
@@ -49,7 +48,6 @@ const LoginBox = (props) => {
     setLoading(true);
     setError(false);
     props.setPlayerName(user);
-    console.log(playerStats);
     const filteredUser = user.replaceAll(" ", "_");
     const obj = { user: filteredUser };
     try {
@@ -67,7 +65,6 @@ const LoginBox = (props) => {
 
       updateSkills(data.result);
       updateSkillsExp(data.result);
-      console.log(data.result);
     } catch (err) {
       console.error(err);
       setError(true);

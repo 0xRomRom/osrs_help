@@ -1,12 +1,9 @@
 import stl from "./Main.module.css";
 import Home from "./home/Home";
-import { useState } from "react";
 
-const Main = () => {
-  const [selectedTab, setSelectedTab] = useState("home");
-
+const Main = (props) => {
   return (
-    <div className={stl.main}>{selectedTab === "home" ? <Home /> : ""}</div>
+    <div className={stl.main}>{props.activeTab === "home" && <Home />}</div>
   );
 };
 

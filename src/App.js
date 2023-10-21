@@ -8,7 +8,7 @@ const App = () => {
   return (
     <div className={stl.app}>
       <Nav setActiveTab={setActiveTab} activeTab={activeTab} />
-      <Main />
+      <Main activeTab={activeTab} />
     </div>
   );
 };

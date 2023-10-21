@@ -16,7 +16,6 @@ const UserBox = (props) => {
 
   useEffect(() => {
     const calculateCombatLevel = () => {
-      console.log(props.skills);
       const skills = props.skills;
       const attack = +skills["attack"];
       const strength = +skills["strength"];
