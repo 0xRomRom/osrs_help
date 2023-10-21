@@ -1,5 +1,7 @@
 import stl from "./SkillsGrid.module.css";
 
+import { useState } from "react";
+
 import attackIcon from "../../../../assets/skillicons/Attack.webp";
 import hitpointsIcon from "../../../../assets/skillicons/Hitpoints.webp";
 import miningIcon from "../../../../assets/skillicons/Mining.webp";
@@ -30,19 +32,42 @@ const SkillsGrid = (props) => {
     return Number(props.skillsExp[skill]).toLocaleString();
   };
 
+  const [isHovered, setIsHovered] = useState({});
+
+  // Function to handle hover events for each skill
+  const handleSkillHover = (skillName, isHovering) => {
+    setIsHovered((prevIsHovered) => ({
+      ...prevIsHovered,
+      [skillName]: isHovering,
+    }));
+  };
+
   return (
     <div className={stl.renderedSkills}>
       <div className={`${stl.skillRow} ${stl.row1}`}>
-        <div className={stl.skillLvl}>
+        <div
+          className={stl.skillLvl}
+          onMouseEnter={() => handleSkillHover("attack", true)}
+          onMouseLeave={() => handleSkillHover("attack", false)}
+        >
           <img src={attackIcon} alt="Attack Level" className={stl.lvlIcon} />
           <div className={stl.lvlDiv}>
             <img src={borderImg} alt="Border" className={stl.borderImg} />
             <span className={stl.upperLvl}>{props.skills["attack"]}</span>
             <span className={stl.lowerLvl}>{props.skills["attack"]}</span>
           </div>
-          <span className={stl.skillExp}>{handleSkillsExp("attack")}</span>
+          <span
+            className={stl.skillExp}
+            style={{ display: isHovered["attack"] ? "inline" : "none" }}
+          >
+            {handleSkillsExp("attack")}
+          </span>
         </div>
-        <div className={stl.skillLvl}>
+        <div
+          className={stl.skillLvl}
+          onMouseEnter={() => handleSkillHover("hitpoints", true)}
+          onMouseLeave={() => handleSkillHover("hitpoints", false)}
+        >
           <img
             src={hitpointsIcon}
             alt="Hitpoints Level"
@@ -53,6 +78,12 @@ const SkillsGrid = (props) => {
             <span className={stl.upperLvl}>{props.skills["hitpoints"]}</span>
             <span className={stl.lowerLvl}>{props.skills["hitpoints"]}</span>
           </div>
+          <span
+            className={stl.skillExp}
+            style={{ display: isHovered["hitpoints"] ? "inline" : "none" }}
+          >
+            {handleSkillsExp("hitpoints")}
+          </span>
         </div>
         <div className={stl.skillLvl}>
           <img src={miningIcon} alt="Mining Level" className={stl.lvlIcon} />
