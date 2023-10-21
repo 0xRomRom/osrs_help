@@ -43,11 +43,11 @@ const LoginBox = (props) => {
 
   const fetchUserData = async (e) => {
     e.preventDefault();
+    const user = usernameRef.current.value;
+    if (!user || user === "") return;
     setLoading(true);
     setError(false);
-    const user = usernameRef.current.value;
     props.setPlayerName(user);
-    if (!user) return;
     const filteredUser = user.replaceAll(" ", "_");
     const obj = { user: filteredUser };
     try {

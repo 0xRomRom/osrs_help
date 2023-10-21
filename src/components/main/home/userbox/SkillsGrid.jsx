@@ -85,13 +85,24 @@ const SkillsGrid = (props) => {
             {handleSkillsExp("hitpoints")}
           </span>
         </div>
-        <div className={stl.skillLvl}>
+
+        <div
+          className={stl.skillLvl}
+          onMouseEnter={() => handleSkillHover("mining", true)}
+          onMouseLeave={() => handleSkillHover("mining", false)}
+        >
           <img src={miningIcon} alt="Mining Level" className={stl.lvlIcon} />
           <div className={stl.lvlDiv}>
             <img src={borderImg} alt="Border" className={stl.borderImg} />
             <span className={stl.upperLvl}>{props.skills["mining"]}</span>
             <span className={stl.lowerLvl}>{props.skills["mining"]}</span>
           </div>
+          <span
+            className={stl.skillExp}
+            style={{ display: isHovered["mining"] ? "inline" : "none" }}
+          >
+            {handleSkillsExp("mining")}
+          </span>
         </div>
       </div>
 
