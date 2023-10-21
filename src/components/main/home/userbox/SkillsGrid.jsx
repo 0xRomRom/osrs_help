@@ -55,13 +55,13 @@ const SkillsGrid = (props) => {
             <img src={borderImg} alt="Border" className={stl.borderImg} />
             <span className={stl.upperLvl}>{props.skills["attack"]}</span>
             <span className={stl.lowerLvl}>{props.skills["attack"]}</span>
+            <span
+              className={stl.skillExp}
+              style={{ display: isHovered["attack"] ? "inline" : "none" }}
+            >
+              {handleSkillsExp("attack")}
+            </span>
           </div>
-          <span
-            className={stl.skillExp}
-            style={{ display: isHovered["attack"] ? "inline" : "none" }}
-          >
-            {handleSkillsExp("attack")}
-          </span>
         </div>
         <div
           className={stl.skillLvl}
@@ -77,13 +77,13 @@ const SkillsGrid = (props) => {
             <img src={borderImg} alt="Border" className={stl.borderImg} />
             <span className={stl.upperLvl}>{props.skills["hitpoints"]}</span>
             <span className={stl.lowerLvl}>{props.skills["hitpoints"]}</span>
+            <span
+              className={stl.skillExp}
+              style={{ display: isHovered["hitpoints"] ? "inline" : "none" }}
+            >
+              {handleSkillsExp("hitpoints")}
+            </span>
           </div>
-          <span
-            className={stl.skillExp}
-            style={{ display: isHovered["hitpoints"] ? "inline" : "none" }}
-          >
-            {handleSkillsExp("hitpoints")}
-          </span>
         </div>
 
         <div
@@ -96,18 +96,22 @@ const SkillsGrid = (props) => {
             <img src={borderImg} alt="Border" className={stl.borderImg} />
             <span className={stl.upperLvl}>{props.skills["mining"]}</span>
             <span className={stl.lowerLvl}>{props.skills["mining"]}</span>
+            <span
+              className={stl.skillExp}
+              style={{ display: isHovered["mining"] ? "inline" : "none" }}
+            >
+              {handleSkillsExp("mining")}
+            </span>
           </div>
-          <span
-            className={stl.skillExp}
-            style={{ display: isHovered["mining"] ? "inline" : "none" }}
-          >
-            {handleSkillsExp("mining")}
-          </span>
         </div>
       </div>
 
       <div className={`${stl.skillRow} ${stl.row2}`}>
-        <div className={stl.skillLvl}>
+        <div
+          className={stl.skillLvl}
+          onMouseEnter={() => handleSkillHover("strength", true)}
+          onMouseLeave={() => handleSkillHover("strength", false)}
+        >
           <img
             src={strengthIcon}
             alt="Strength Level"
@@ -117,17 +121,37 @@ const SkillsGrid = (props) => {
             <img src={borderImg} alt="Border" className={stl.borderImg} />
             <span className={stl.upperLvl}>{props.skills["strength"]}</span>
             <span className={stl.lowerLvl}>{props.skills["strength"]}</span>
+            <span
+              className={stl.skillExp}
+              style={{ display: isHovered["strength"] ? "inline" : "none" }}
+            >
+              {handleSkillsExp("strength")}
+            </span>
           </div>
         </div>
-        <div className={stl.skillLvl}>
+        <div
+          className={stl.skillLvl}
+          onMouseEnter={() => handleSkillHover("agility", true)}
+          onMouseLeave={() => handleSkillHover("agility", false)}
+        >
           <img src={agilityIcon} alt="Agility Level" className={stl.lvlIcon} />
           <div className={stl.lvlDiv}>
             <img src={borderImg} alt="Border" className={stl.borderImg} />
             <span className={stl.upperLvl}>{props.skills["agility"]}</span>
             <span className={stl.lowerLvl}>{props.skills["agility"]}</span>
+            <span
+              className={stl.skillExp}
+              style={{ display: isHovered["agility"] ? "inline" : "none" }}
+            >
+              {handleSkillsExp("agility")}
+            </span>
           </div>
         </div>
-        <div className={stl.skillLvl}>
+        <div
+          className={stl.skillLvl}
+          onMouseEnter={() => handleSkillHover("smithing", true)}
+          onMouseLeave={() => handleSkillHover("smithing", false)}
+        >
           <img
             src={smithingIcon}
             alt="Smithing Level"
@@ -137,20 +161,40 @@ const SkillsGrid = (props) => {
             <img src={borderImg} alt="Border" className={stl.borderImg} />
             <span className={stl.upperLvl}>{props.skills["smithing"]}</span>
             <span className={stl.lowerLvl}>{props.skills["smithing"]}</span>
+            <span
+              className={stl.skillExp}
+              style={{ display: isHovered["smithing"] ? "inline" : "none" }}
+            >
+              {handleSkillsExp("smithing")}
+            </span>
           </div>
         </div>
       </div>
 
       <div className={`${stl.skillRow} ${stl.row3}`}>
-        <div className={stl.skillLvl}>
+        <div
+          className={stl.skillLvl}
+          onMouseEnter={() => handleSkillHover("defence", true)}
+          onMouseLeave={() => handleSkillHover("defence", false)}
+        >
           <img src={defenceIcon} alt="Defence Level" className={stl.lvlIcon} />
           <div className={stl.lvlDiv}>
             <img src={borderImg} alt="Border" className={stl.borderImg} />
             <span className={stl.upperLvl}>{props.skills["defence"]}</span>
             <span className={stl.lowerLvl}>{props.skills["defence"]}</span>
+            <span
+              className={stl.skillExp}
+              style={{ display: isHovered["defence"] ? "inline" : "none" }}
+            >
+              {handleSkillsExp("defence")}
+            </span>
           </div>
         </div>
-        <div className={stl.skillLvl}>
+        <div
+          className={stl.skillLvl}
+          onMouseEnter={() => handleSkillHover("herblore", true)}
+          onMouseLeave={() => handleSkillHover("herblore", false)}
+        >
           <img
             src={herbloreIcon}
             alt="Herblore Level"
@@ -160,28 +204,58 @@ const SkillsGrid = (props) => {
             <img src={borderImg} alt="Border" className={stl.borderImg} />
             <span className={stl.upperLvl}>{props.skills["herblore"]}</span>
             <span className={stl.lowerLvl}>{props.skills["herblore"]}</span>
+            <span
+              className={stl.skillExp}
+              style={{ display: isHovered["herblore"] ? "inline" : "none" }}
+            >
+              {handleSkillsExp("herblore")}
+            </span>
           </div>
         </div>
-        <div className={stl.skillLvl}>
+        <div
+          className={stl.skillLvl}
+          onMouseEnter={() => handleSkillHover("fishing", true)}
+          onMouseLeave={() => handleSkillHover("fishing", false)}
+        >
           <img src={fishingIcon} alt="Fishing Level" className={stl.lvlIcon} />
           <div className={stl.lvlDiv}>
             <img src={borderImg} alt="Border" className={stl.borderImg} />
             <span className={stl.upperLvl}>{props.skills["fishing"]}</span>
             <span className={stl.lowerLvl}>{props.skills["fishing"]}</span>
+            <span
+              className={stl.skillExp}
+              style={{ display: isHovered["fishing"] ? "inline" : "none" }}
+            >
+              {handleSkillsExp("fishing")}
+            </span>
           </div>
         </div>
       </div>
 
       <div className={`${stl.skillRow} ${stl.row4}`}>
-        <div className={stl.skillLvl}>
+        <div
+          className={stl.skillLvl}
+          onMouseEnter={() => handleSkillHover("ranged", true)}
+          onMouseLeave={() => handleSkillHover("ranged", false)}
+        >
           <img src={rangedIcon} alt="Ranged Level" className={stl.lvlIcon} />
           <div className={stl.lvlDiv}>
             <img src={borderImg} alt="Border" className={stl.borderImg} />
             <span className={stl.upperLvl}>{props.skills["ranged"]}</span>
             <span className={stl.lowerLvl}>{props.skills["ranged"]}</span>
+            <span
+              className={stl.skillExp}
+              style={{ display: isHovered["ranged"] ? "inline" : "none" }}
+            >
+              {handleSkillsExp("ranged")}
+            </span>
           </div>
         </div>
-        <div className={stl.skillLvl}>
+        <div
+          className={stl.skillLvl}
+          onMouseEnter={() => handleSkillHover("thieving", true)}
+          onMouseLeave={() => handleSkillHover("thieving", false)}
+        >
           <img
             src={thievingIcon}
             alt="Thieving Level"
@@ -191,28 +265,58 @@ const SkillsGrid = (props) => {
             <img src={borderImg} alt="Border" className={stl.borderImg} />
             <span className={stl.upperLvl}>{props.skills["thieving"]}</span>
             <span className={stl.lowerLvl}>{props.skills["thieving"]}</span>
+            <span
+              className={stl.skillExp}
+              style={{ display: isHovered["thieving"] ? "inline" : "none" }}
+            >
+              {handleSkillsExp("thieving")}
+            </span>
           </div>
         </div>
-        <div className={stl.skillLvl}>
+        <div
+          className={stl.skillLvl}
+          onMouseEnter={() => handleSkillHover("cooking", true)}
+          onMouseLeave={() => handleSkillHover("cooking", false)}
+        >
           <img src={cookingIcon} alt="Cooking Level" className={stl.lvlIcon} />
           <div className={stl.lvlDiv}>
             <img src={borderImg} alt="Border" className={stl.borderImg} />
             <span className={stl.upperLvl}>{props.skills["cooking"]}</span>
             <span className={stl.lowerLvl}>{props.skills["cooking"]}</span>
+            <span
+              className={stl.skillExp}
+              style={{ display: isHovered["cooking"] ? "inline" : "none" }}
+            >
+              {handleSkillsExp("cooking")}
+            </span>
           </div>
         </div>
       </div>
 
       <div className={`${stl.skillRow} ${stl.row5}`}>
-        <div className={stl.skillLvl}>
+        <div
+          className={stl.skillLvl}
+          onMouseEnter={() => handleSkillHover("prayer", true)}
+          onMouseLeave={() => handleSkillHover("prayer", false)}
+        >
           <img src={prayerIcon} alt="Prayer Level" className={stl.lvlIcon} />
           <div className={stl.lvlDiv}>
             <img src={borderImg} alt="Border" className={stl.borderImg} />
             <span className={stl.upperLvl}>{props.skills["prayer"]}</span>
             <span className={stl.lowerLvl}>{props.skills["prayer"]}</span>
+            <span
+              className={stl.skillExp}
+              style={{ display: isHovered["prayer"] ? "inline" : "none" }}
+            >
+              {handleSkillsExp("prayer")}
+            </span>
           </div>
         </div>
-        <div className={stl.skillLvl}>
+        <div
+          className={stl.skillLvl}
+          onMouseEnter={() => handleSkillHover("crafting", true)}
+          onMouseLeave={() => handleSkillHover("crafting", false)}
+        >
           <img
             src={craftingIcon}
             alt="Crafting Level"
@@ -222,9 +326,19 @@ const SkillsGrid = (props) => {
             <img src={borderImg} alt="Border" className={stl.borderImg} />
             <span className={stl.upperLvl}>{props.skills["crafting"]}</span>
             <span className={stl.lowerLvl}>{props.skills["crafting"]}</span>
+            <span
+              className={stl.skillExp}
+              style={{ display: isHovered["crafting"] ? "inline" : "none" }}
+            >
+              {handleSkillsExp("crafting")}
+            </span>
           </div>
         </div>
-        <div className={stl.skillLvl}>
+        <div
+          className={stl.skillLvl}
+          onMouseEnter={() => handleSkillHover("firemaking", true)}
+          onMouseLeave={() => handleSkillHover("firemaking", false)}
+        >
           <img
             src={firemakingIcon}
             alt="Firemaking Level"
@@ -234,20 +348,40 @@ const SkillsGrid = (props) => {
             <img src={borderImg} alt="Border" className={stl.borderImg} />
             <span className={stl.upperLvl}>{props.skills["firemaking"]}</span>
             <span className={stl.lowerLvl}>{props.skills["firemaking"]}</span>
+            <span
+              className={stl.skillExp}
+              style={{ display: isHovered["firemaking"] ? "inline" : "none" }}
+            >
+              {handleSkillsExp("firemaking")}
+            </span>
           </div>
         </div>
       </div>
 
       <div className={`${stl.skillRow} ${stl.row6}`}>
-        <div className={stl.skillLvl}>
+        <div
+          className={stl.skillLvl}
+          onMouseEnter={() => handleSkillHover("magic", true)}
+          onMouseLeave={() => handleSkillHover("magic", false)}
+        >
           <img src={magicIcon} alt="Magic Level" className={stl.lvlIcon} />
           <div className={stl.lvlDiv}>
             <img src={borderImg} alt="Border" className={stl.borderImg} />
             <span className={stl.upperLvl}>{props.skills["magic"]}</span>
             <span className={stl.lowerLvl}>{props.skills["magic"]}</span>
+            <span
+              className={stl.skillExp}
+              style={{ display: isHovered["magic"] ? "inline" : "none" }}
+            >
+              {handleSkillsExp("magic")}
+            </span>
           </div>
         </div>
-        <div className={stl.skillLvl}>
+        <div
+          className={stl.skillLvl}
+          onMouseEnter={() => handleSkillHover("fletching", true)}
+          onMouseLeave={() => handleSkillHover("fletching", false)}
+        >
           <img
             src={fletchingIcon}
             alt="Fletching Level"
@@ -257,9 +391,19 @@ const SkillsGrid = (props) => {
             <img src={borderImg} alt="Border" className={stl.borderImg} />
             <span className={stl.upperLvl}>{props.skills["fletching"]}</span>
             <span className={stl.lowerLvl}>{props.skills["fletching"]}</span>
+            <span
+              className={stl.skillExp}
+              style={{ display: isHovered["fletching"] ? "inline" : "none" }}
+            >
+              {handleSkillsExp("fletching")}
+            </span>
           </div>
         </div>
-        <div className={stl.skillLvl}>
+        <div
+          className={stl.skillLvl}
+          onMouseEnter={() => handleSkillHover("woodcutting", true)}
+          onMouseLeave={() => handleSkillHover("woodcutting", false)}
+        >
           <img
             src={woodcuttingIcon}
             alt="Woodcutting Level"
@@ -269,12 +413,22 @@ const SkillsGrid = (props) => {
             <img src={borderImg} alt="Border" className={stl.borderImg} />
             <span className={stl.upperLvl}>{props.skills["woodcutting"]}</span>
             <span className={stl.lowerLvl}>{props.skills["woodcutting"]}</span>
+            <span
+              className={stl.skillExp}
+              style={{ display: isHovered["woodcutting"] ? "inline" : "none" }}
+            >
+              {handleSkillsExp("woodcutting")}
+            </span>
           </div>
         </div>
       </div>
 
       <div className={`${stl.skillRow} ${stl.row7}`}>
-        <div className={stl.skillLvl}>
+        <div
+          className={stl.skillLvl}
+          onMouseEnter={() => handleSkillHover("runecraft", true)}
+          onMouseLeave={() => handleSkillHover("runecraft", false)}
+        >
           <img
             src={runecraftingIcon}
             alt="Runecrafting Level"
@@ -284,45 +438,91 @@ const SkillsGrid = (props) => {
             <img src={borderImg} alt="Border" className={stl.borderImg} />
             <span className={stl.upperLvl}>{props.skills["runecraft"]}</span>
             <span className={stl.lowerLvl}>{props.skills["runecraft"]}</span>
+            <span
+              className={stl.skillExp}
+              style={{ display: isHovered["runecraft"] ? "inline" : "none" }}
+            >
+              {handleSkillsExp("runecraft")}
+            </span>
           </div>
         </div>
-        <div className={stl.skillLvl}>
-          <img src={slayerIcon} alt="Attack Level" className={stl.lvlIcon} />
+        <div
+          className={stl.skillLvl}
+          onMouseEnter={() => handleSkillHover("slayer", true)}
+          onMouseLeave={() => handleSkillHover("slayer", false)}
+        >
+          <img src={slayerIcon} alt="Slayer Level" className={stl.lvlIcon} />
           <div className={stl.lvlDiv}>
             <img src={borderImg} alt="Border" className={stl.borderImg} />
-            <span className={stl.upperLvl}>99</span>
-            <span className={stl.lowerLvl}>99</span>
+            <span className={stl.upperLvl}>{props.skills["slayer"]}</span>
+            <span className={stl.lowerLvl}>{props.skills["slayer"]}</span>
+            <span
+              className={stl.skillExp}
+              style={{ display: isHovered["slayer"] ? "inline" : "none" }}
+            >
+              {handleSkillsExp("slayer")}
+            </span>
           </div>
         </div>
-        <div className={stl.skillLvl}>
-          <img src={farmingIcon} alt="Attack Level" className={stl.lvlIcon} />
+        <div
+          className={stl.skillLvl}
+          onMouseEnter={() => handleSkillHover("farming", true)}
+          onMouseLeave={() => handleSkillHover("farming", false)}
+        >
+          <img src={farmingIcon} alt="Farming Level" className={stl.lvlIcon} />
           <div className={stl.lvlDiv}>
             <img src={borderImg} alt="Border" className={stl.borderImg} />
-            <span className={stl.upperLvl}>99</span>
-            <span className={stl.lowerLvl}>99</span>
+            <span className={stl.upperLvl}>{props.skills["farming"]}</span>
+            <span className={stl.lowerLvl}>{props.skills["farming"]}</span>
+            <span
+              className={stl.skillExp}
+              style={{ display: isHovered["farming"] ? "inline" : "none" }}
+            >
+              {handleSkillsExp("farming")}
+            </span>
           </div>
         </div>
       </div>
 
       <div className={`${stl.skillRow} ${stl.row8}`}>
-        <div className={stl.skillLvl}>
+        <div
+          className={stl.skillLvl}
+          onMouseEnter={() => handleSkillHover("construction", true)}
+          onMouseLeave={() => handleSkillHover("construction", false)}
+        >
           <img
             src={constructionIcon}
-            alt="Attack Level"
+            alt="Construction Level"
             className={stl.lvlIcon}
           />
           <div className={stl.lvlDiv}>
             <img src={borderImg} alt="Border" className={stl.borderImg} />
-            <span className={stl.upperLvl}>70</span>
-            <span className={stl.lowerLvl}>70</span>
+            <span className={stl.upperLvl}>{props.skills["construction"]}</span>
+            <span className={stl.lowerLvl}>{props.skills["construction"]}</span>
+            <span
+              className={stl.skillExp}
+              style={{ display: isHovered["construction"] ? "inline" : "none" }}
+            >
+              {handleSkillsExp("construction")}
+            </span>
           </div>
         </div>
-        <div className={stl.skillLvl}>
-          <img src={hunterIcon} alt="Attack Level" className={stl.lvlIcon} />
+        <div
+          className={stl.skillLvl}
+          onMouseEnter={() => handleSkillHover("hunter", true)}
+          onMouseLeave={() => handleSkillHover("hunter", false)}
+        >
+          <img src={hunterIcon} alt="Hunter Level" className={stl.lvlIcon} />
           <div className={stl.lvlDiv}>
             <img src={borderImg} alt="Border" className={stl.borderImg} />
-            <span className={stl.upperLvl}>99</span>
-            <span className={stl.lowerLvl}>99</span>
+            <span className={stl.upperLvl}>{props.skills["hunter"]}</span>
+            <span className={stl.lowerLvl}>{props.skills["hunter"]}</span>
+            <span
+              className={stl.skillExp}
+              style={{ display: isHovered["hunter"] ? "inline" : "none" }}
+            >
+              {handleSkillsExp("hunter")}
+            </span>
           </div>
         </div>
         <div className={stl.skillLvl}>

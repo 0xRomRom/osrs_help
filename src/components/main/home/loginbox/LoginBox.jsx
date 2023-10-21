@@ -12,12 +12,12 @@ const LoginBox = (props) => {
     const skillsArray = data.split(/\n/);
 
     let filteredSkills = [];
-    for (let i = 0; i < 23; i++) {
+    for (let i = 0; i < playerStats.length; i++) {
       const value = skillsArray[i].split(",")[1];
       filteredSkills.push(value);
     }
 
-    for (let i = 0; i < 23; i++) {
+    for (let i = 0; i < playerStats.length; i++) {
       currentStats[playerStats[i]] = filteredSkills[i];
     }
 
@@ -29,15 +29,16 @@ const LoginBox = (props) => {
     const skillsArray = data.split(/\n/);
 
     let filteredSkills = [];
-    for (let i = 0; i < 23; i++) {
+    for (let i = 0; i < playerStats.length; i++) {
       const value = skillsArray[i].split(",")[2];
       filteredSkills.push(value);
     }
 
-    for (let i = 0; i < 23; i++) {
+    for (let i = 0; i < playerStats.length; i++) {
       currentStats[playerStats[i]] = filteredSkills[i];
     }
 
+    console.log(currentStats);
     props.setSkillsExp(currentStats);
   };
 
@@ -48,6 +49,7 @@ const LoginBox = (props) => {
     setLoading(true);
     setError(false);
     props.setPlayerName(user);
+    console.log(playerStats);
     const filteredUser = user.replaceAll(" ", "_");
     const obj = { user: filteredUser };
     try {
@@ -65,6 +67,7 @@ const LoginBox = (props) => {
 
       updateSkills(data.result);
       updateSkillsExp(data.result);
+      console.log(data.result);
     } catch (err) {
       console.error(err);
       setError(true);

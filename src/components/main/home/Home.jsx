@@ -15,8 +15,6 @@ const Home = () => {
 
   useEffect(() => {
     if (skills || skillsExp) {
-      console.log(skills);
-      console.log(skillsExp);
       setSkillsFetched(true);
     }
   }, [skills, skillsExp]);
