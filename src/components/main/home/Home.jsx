@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import stl from "./Home.module.css";
 
 import barrows from "../../../assets/wallpapers/Barrows.webp";

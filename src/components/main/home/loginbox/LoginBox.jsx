@@ -1,9 +1,11 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import stl from "./LoginBox.module.css";
 import playerStats from "../../../../utils/playerStats.js";
 
 const LoginBox = (props) => {
   const usernameRef = useRef(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   const updateSkills = (data) => {
     let currentStats = {};
@@ -41,7 +43,8 @@ const LoginBox = (props) => {
 
   const fetchUserData = async (e) => {
     e.preventDefault();
-
+    setLoading(true);
+    setError(false);
     const user = usernameRef.current.value;
     props.setPlayerName(user);
     if (!user) return;
@@ -64,7 +67,9 @@ const LoginBox = (props) => {
       updateSkillsExp(data.result);
     } catch (err) {
       console.error(err);
+      setError(true);
     }
+    setLoading(false);
   };
 
   return (
@@ -74,8 +79,13 @@ const LoginBox = (props) => {
           Username:
           <input type="text" className={stl.nameinput} ref={usernameRef} />
         </label>
-        <button className={stl.cta} onClick={fetchUserData}>
-          Get stats
+        {error && <span className={stl.notFound}>Username not found</span>}
+        <button
+          className={stl.cta}
+          onClick={fetchUserData}
+          disabled={loading ? true : false}
+        >
+          {loading ? "Loading" : "Get Stats"}
         </button>
       </form>
     </div>

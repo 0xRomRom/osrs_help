@@ -14,33 +14,33 @@ const UserBox = (props) => {
   const [cmbLvl, setCmbLvl] = useState(null);
   const [imageState, setImageState] = useState(null);
 
-  const calculateCombatLevel = () => {
-    console.log(props.skills);
-    const skills = props.skills;
-    const attack = +skills["attack"];
-    const strength = +skills["strength"];
-    const defence = +skills["defence"];
-    const hitpoints = +skills["hitpoints"];
-    const ranged = +skills["ranged"];
-    const prayer = +skills["prayer"];
-    const magic = +skills["magic"];
-
-    const step1 = Math.floor(prayer / 2);
-    const step2 = (hitpoints + defence + step1) / 4;
-    const step3 = (strength + attack) * 0.325;
-    const cmb = (step2 + step3).toFixed(1);
-    if (defence >= 1 && defence < 70) {
-      setImageState(lvl1def);
-    } else if (defence >= 70 && defence < 99) {
-      setImageState(lvl70def);
-    } else {
-      setImageState(lvl99def);
-    }
-
-    setCmbLvl(cmb);
-  };
-
   useEffect(() => {
+    const calculateCombatLevel = () => {
+      console.log(props.skills);
+      const skills = props.skills;
+      const attack = +skills["attack"];
+      const strength = +skills["strength"];
+      const defence = +skills["defence"];
+      const hitpoints = +skills["hitpoints"];
+      // const ranged = +skills["ranged"];
+      const prayer = +skills["prayer"];
+      // const magic = +skills["magic"];
+
+      const step1 = Math.floor(prayer / 2);
+      const step2 = (hitpoints + defence + step1) / 4;
+      const step3 = (strength + attack) * 0.325;
+      const cmb = (step2 + step3).toFixed(1);
+      if (defence >= 1 && defence < 70) {
+        setImageState(lvl1def);
+      } else if (defence >= 70 && defence < 99) {
+        setImageState(lvl70def);
+      } else {
+        setImageState(lvl99def);
+      }
+
+      setCmbLvl(cmb);
+    };
+
     calculateCombatLevel();
   }, [props.skills]);
 
