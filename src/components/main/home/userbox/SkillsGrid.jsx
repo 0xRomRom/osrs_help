@@ -26,6 +26,10 @@ import hunterIcon from "../../../../assets/skillicons/Hunter.webp";
 import borderImg from "../../../../assets/skillicons/Border.png";
 
 const SkillsGrid = (props) => {
+  const handleSkillsExp = (skill) => {
+    return Number(props.skillsExp[skill]).toLocaleString();
+  };
+
   return (
     <div className={stl.renderedSkills}>
       <div className={`${stl.skillRow} ${stl.row1}`}>
@@ -36,6 +40,7 @@ const SkillsGrid = (props) => {
             <span className={stl.upperLvl}>{props.skills["attack"]}</span>
             <span className={stl.lowerLvl}>{props.skills["attack"]}</span>
           </div>
+          <span className={stl.skillExp}>{handleSkillsExp("attack")}</span>
         </div>
         <div className={stl.skillLvl}>
           <img

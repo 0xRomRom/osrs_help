@@ -114,3 +114,9 @@
   padding-left: 2px;
   padding-top: 2px;
 }
+
+.skillExp {
+  background-color: black;
+  z-index: 10;
+  color: white;
+}

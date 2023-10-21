@@ -38,6 +38,7 @@ const Home = () => {
         {skillsFetched ? (
           <UserBox
             skills={skills}
+            skillsExp={skillsExp}
             playerName={playerName}
             switchTab={setSkillsFetched}
           />
