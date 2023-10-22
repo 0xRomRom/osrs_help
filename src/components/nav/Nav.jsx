@@ -37,7 +37,7 @@ const Nav = (props) => {
             onClick={() => handleTabSwitch("skills")}
           >
             <img src={stats} alt="Skills Icon" className={stl.icon} />
-            Skills Calculators
+            Skill Calculators
           </li>
           <li
             className={`${stl.navitem} ${
@@ -55,7 +55,7 @@ const Nav = (props) => {
             onClick={() => handleTabSwitch("gear")}
           >
             <img src={gear} alt="Gear Icon" className={stl.icon} />
-            Gear Calculators
+            Gear Calculator
           </li>
           <li
             className={`${stl.navitem} ${
