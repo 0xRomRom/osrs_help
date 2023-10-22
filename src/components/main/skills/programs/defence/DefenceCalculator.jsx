@@ -1,13 +1,20 @@
 import stl from "./DefenceCalculator.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import defenceIcon from "../../../../../assets/skillicons/Defence.webp";
 import CalculateRemainderExp from "../../../../../utils/calculateRemainderExp";
+import FetchUsername from "../fetchUsername/FetchUsername";
 
 const DefenceCalculator = (props) => {
   const handleMenuSwitch = () => {
     props.setSkillClicked(false);
     props.setClickedSkill("");
+  };
+
+  const handleUserReset = () => {
+    props.setSkills(null);
+    props.setPlayerName(null);
+    props.setSkillsExp(null);
   };
 
   const arePropsDefined =
@@ -46,8 +53,19 @@ const DefenceCalculator = (props) => {
                 />
               </span>
             </div>
+            <FontAwesomeIcon
+              icon={faTrashCan}
+              className={stl.trashcan}
+              onClick={handleUserReset}
+            />
           </div>
-        ) : null}
+        ) : (
+          <FetchUsername
+            setSkills={props.setSkills}
+            setSkillsExp={props.setSkillsExp}
+            setPlayerName={props.setPlayerName}
+          />
+        )}
       </div>
     </div>
   );

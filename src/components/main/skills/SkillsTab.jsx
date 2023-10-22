@@ -59,6 +59,9 @@ const SkillsTab = (props) => {
           skills={props.skills}
           skillsExp={props.skillsExp}
           playerName={props.playerName}
+          setSkills={props.setSkills}
+          setSkillsExp={props.setSkillsExp}
+          setPlayerName={props.setPlayerName}
         />
       ) : null}
 

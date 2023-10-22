@@ -1,6 +1,6 @@
 import stl from "./AttackCalculator.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import attackIcon from "../../../../../assets/skillicons/Attack.webp";
 import CalculateRemainderExp from "./../../../../../utils/calculateRemainderExp";
 import FetchUsername from "../fetchUsername/FetchUsername";
@@ -9,6 +9,12 @@ const AttackCalculator = (props) => {
   const handleMenuSwitch = () => {
     props.setSkillClicked(false);
     props.setClickedSkill("");
+  };
+
+  const handleUserReset = () => {
+    props.setSkills(null);
+    props.setPlayerName(null);
+    props.setSkillsExp(null);
   };
 
   const arePropsDefined =
@@ -48,6 +54,11 @@ const AttackCalculator = (props) => {
                 />
               </span>
             </div>
+            <FontAwesomeIcon
+              icon={faTrashCan}
+              className={stl.trashcan}
+              onClick={handleUserReset}
+            />
           </div>
         ) : (
           <FetchUsername
