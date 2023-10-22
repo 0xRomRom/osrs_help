@@ -17,8 +17,11 @@ const Main = (props) => {
       )}
       {props.activeTab === "skills" && (
         <SkillsTab
+          setSkills={props.setSkills}
           skills={props.skills}
+          setSkillsExp={props.setSkillsExp}
           skillsExp={props.skillsExp}
+          setPlayerName={props.setPlayerName}
           playerName={props.playerName}
         />
       )}

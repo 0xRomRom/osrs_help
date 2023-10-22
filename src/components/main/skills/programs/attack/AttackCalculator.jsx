@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import attackIcon from "../../../../../assets/skillicons/Attack.webp";
 import CalculateRemainderExp from "./../../../../../utils/calculateRemainderExp";
+import FetchUsername from "../fetchUsername/FetchUsername";
 
 const AttackCalculator = (props) => {
   const handleMenuSwitch = () => {
@@ -32,7 +33,7 @@ const AttackCalculator = (props) => {
             <div className={stl.userBlock}>
               <span className={stl.playerName}>{props?.playerName}</span>
               <span className={stl.playerLvl}>
-                Level {props?.skills["attack"]}
+                Level {props.skills["attack"]}
               </span>
             </div>
             <div className={stl.remainderBlock}>
@@ -40,14 +41,20 @@ const AttackCalculator = (props) => {
               <span className={stl.remaining}>
                 <CalculateRemainderExp
                   skillname={"attack"}
-                  currentLvl={props?.skills["attack"]}
-                  currentExp={props?.skillsExp}
+                  currentLvl={props.skills["attack"]}
+                  currentExp={props.skillsExp}
                   className={stl.remainder}
                 />
               </span>
             </div>
           </div>
-        ) : null}
+        ) : (
+          <FetchUsername
+            setSkills={props.setSkills}
+            setSkillsExp={props.setSkillsExp}
+            setPlayerName={props.setPlayerName}
+          />
+        )}
       </div>
     </div>
   );
