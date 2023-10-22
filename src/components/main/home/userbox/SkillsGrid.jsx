@@ -29,7 +29,7 @@ import borderImg from "../../../../assets/skillicons/Border.png";
 
 const SkillsGrid = (props) => {
   const handleSkillsExp = (skill) => {
-    return Number(props.skillsExp[skill]).toLocaleString();
+    return Number(props.skillsExp[skill]) < 0 ? 0 : props.skillsExp[skill];
   };
 
   const [isHovered, setIsHovered] = useState({});

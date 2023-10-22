@@ -36,6 +36,7 @@ const AttackCalculator = (props) => {
                 Level {props.skills["attack"]}
               </span>
             </div>
+
             <div className={stl.remainderBlock}>
               <span className={stl.expToGo}>Xp till level</span>
               <span className={stl.remaining}>
