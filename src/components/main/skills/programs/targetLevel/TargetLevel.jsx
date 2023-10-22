@@ -15,7 +15,6 @@ const TargetLevel = (props) => {
     }
 
     calculateExpUntilNextLevel();
-    // Clean up the event listener when the component unmounts
     return () => {
       if (sliderRef.current) {
         sliderRef.current.removeEventListener("input", handleSliderChange);
@@ -40,20 +39,12 @@ const TargetLevel = (props) => {
   };
 
   const updateExpToGo = (newValue) => {
-    const currentLvl = +props.currentLvl;
-    const currentExpToLvl = remainingExp;
     const selectedLevel = newValue;
-
     const currentExp = props.skillsExp[props.skillName];
-    console.log("Current Exp", currentExp);
-
     const xpRequiredForSelectedSkill = osrsXpTable[selectedLevel];
-
-    console.log("xpRequiredForSelectedSkill", xpRequiredForSelectedSkill);
 
     const expDifference = xpRequiredForSelectedSkill - currentExp;
     setRemainingExp(expDifference);
-    console.log("Exp difference", expDifference);
   };
 
   return (
