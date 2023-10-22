@@ -69,7 +69,13 @@ const AttackCalculator = (props) => {
           />
         )}
       </div>
-      <TargetLevel />
+      <TargetLevel
+        skills={props.skills}
+        skillsExp={props.skillsExp}
+        skillName={"attack"}
+        currentLvl={props.skills["attack"]}
+        currentExp={props.skillsExp}
+      />
     </div>
   );
 };
