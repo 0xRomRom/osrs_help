@@ -26,6 +26,7 @@ import constructionIcon from "../../../assets/skillicons/Construction.webp";
 import hunterIcon from "../../../assets/skillicons/Hunter.webp";
 
 import AttackCalculator from "../skills/programs/attack/AttackCalculator";
+import DefenceCalculator from "../skills/programs/defence/DefenceCalculator";
 
 const SkillsTab = (props) => {
   const [skillClicked, setSkillClicked] = useState(false);
@@ -47,6 +48,17 @@ const SkillsTab = (props) => {
           playerName={props.playerName}
         />
       ) : null}
+
+      {clickedSkill === "defence" ? (
+        <DefenceCalculator
+          setSkillClicked={setSkillClicked}
+          setClickedSkill={setClickedSkill}
+          skills={props.skills}
+          skillsExp={props.skillsExp}
+          playerName={props.playerName}
+        />
+      ) : null}
+
       {!skillClicked && (
         <div className={stl.modal}>
           <div className={stl.modalInner}>
@@ -57,7 +69,10 @@ const SkillsTab = (props) => {
               <img src={attackIcon} alt="Attack Icon" className={stl.iconImg} />
               <span className={stl.skillName}>Attack</span>
             </div>
-            <div className={`${stl.skill} ${stl.defence}`}>
+            <div
+              className={`${stl.skill} ${stl.defence}`}
+              onClick={() => handleTabOpen("defence")}
+            >
               <img
                 src={defenceIcon}
                 alt="Attack Icon"
