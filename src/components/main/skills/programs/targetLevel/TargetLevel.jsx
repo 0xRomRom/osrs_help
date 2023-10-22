@@ -47,34 +47,43 @@ const TargetLevel = (props) => {
     setRemainingExp(expDifference);
   };
 
+  const propsDefined =
+    props && props.skills && props.skills[props.skillName] && props.skillsExp;
+
   return (
     <div className={stl.modal}>
-      <div className={stl.levelRow}>
-        <div className={stl.targetRow}>
-          <span className={stl.targetlvl}>Target level:</span>
-          <span className={stl.wantedLvl}>{currentSliderValue}</span>
+      {propsDefined ? (
+        <div className={stl.userDefined}>
+          <div className={stl.levelRow}>
+            <div className={stl.targetRow}>
+              <span className={stl.targetlvl}>Target level:</span>
+              <span className={stl.wantedLvl}>{currentSliderValue}</span>
+            </div>
+            <div className={stl.remainderRow}>
+              <span className={stl.requiredExp}>
+                {remainingExp.toLocaleString()} {""}EXP Remaining
+              </span>
+            </div>
+          </div>
+          <div className={stl.sliderBox}>
+            <input
+              type="range"
+              className={stl.rangeSlider}
+              min={+props.currentLvl + 1}
+              max={99}
+              ref={sliderRef}
+            ></input>
+            <div className={stl.valuerow}>
+              <span className={`${stl.sliderValue} ${stl.minval}`}>
+                {+props.currentLvl + 1}
+              </span>
+              <span className={`${stl.sliderValue} ${stl.maxval}`}>99</span>
+            </div>
+          </div>
         </div>
-        <div className={stl.remainderRow}>
-          <span className={stl.requiredExp}>
-            {remainingExp.toLocaleString()} {""}EXP Remaining
-          </span>
-        </div>
-      </div>
-      <div className={stl.sliderBox}>
-        <input
-          type="range"
-          className={stl.rangeSlider}
-          min={+props.currentLvl + 1}
-          max={99}
-          ref={sliderRef}
-        ></input>
-        <div className={stl.valuerow}>
-          <span className={`${stl.sliderValue} ${stl.minval}`}>
-            {+props.currentLvl + 1}
-          </span>
-          <span className={`${stl.sliderValue} ${stl.maxval}`}>99</span>
-        </div>
-      </div>
+      ) : (
+        <div></div>
+      )}
     </div>
   );
 };

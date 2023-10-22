@@ -5,6 +5,7 @@ import attackIcon from "../../../../../assets/skillicons/Attack.webp";
 import CalculateRemainderExp from "./../../../../../utils/calculateRemainderExp";
 import FetchUsername from "../fetchUsername/FetchUsername";
 import TargetLevel from "../targetLevel/TargetLevel";
+import NoPropsTargetLevel from "../targetLevel/NoPropsTargetLevel";
 
 const AttackCalculator = (props) => {
   const handleMenuSwitch = () => {
@@ -69,13 +70,17 @@ const AttackCalculator = (props) => {
           />
         )}
       </div>
-      <TargetLevel
-        skills={props.skills}
-        skillsExp={props.skillsExp}
-        skillName={"attack"}
-        currentLvl={props.skills["attack"]}
-        currentExp={props.skillsExp}
-      />
+      {arePropsDefined ? (
+        <TargetLevel
+          skills={props.skills}
+          skillsExp={props.skillsExp}
+          skillName={"attack"}
+          currentLvl={props.skills["attack"]}
+          currentExp={props.skillsExp}
+        />
+      ) : (
+        <NoPropsTargetLevel />
+      )}
     </div>
   );
 };
