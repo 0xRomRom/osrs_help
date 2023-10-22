@@ -15,7 +15,13 @@ const Main = (props) => {
           playerName={props.playerName}
         />
       )}
-      {props.activeTab === "skills" && <SkillsTab />}
+      {props.activeTab === "skills" && (
+        <SkillsTab
+          skills={props.skills}
+          skillsExp={props.skillsExp}
+          playerName={props.playerName}
+        />
+      )}
     </div>
   );
 };

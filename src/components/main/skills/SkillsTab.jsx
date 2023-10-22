@@ -27,7 +27,7 @@ import hunterIcon from "../../../assets/skillicons/Hunter.webp";
 
 import AttackCalculator from "../skills/programs/attack/AttackCalculator";
 
-const SkillsTab = () => {
+const SkillsTab = (props) => {
   const [skillClicked, setSkillClicked] = useState(false);
   const [clickedSkill, setClickedSkill] = useState("");
 
@@ -42,6 +42,9 @@ const SkillsTab = () => {
         <AttackCalculator
           setSkillClicked={setSkillClicked}
           setClickedSkill={setClickedSkill}
+          skills={props.skills}
+          skillsExp={props.skillsExp}
+          playerName={props.playerName}
         />
       ) : (
         ""

@@ -19,6 +19,7 @@ const AttackCalculator = (props) => {
         />
         <img src={attackIcon} alt="Attack Level" className={stl.skillImg} />
         <span className={stl.skillTitle}>Attack</span>
+        <div className={stl.userStatsBox}></div>
       </div>
     </div>
   );
