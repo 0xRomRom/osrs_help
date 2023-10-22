@@ -4,16 +4,17 @@ import { useRef, useEffect, useState } from "react";
 
 const TargetLevel = (props) => {
   const sliderRef = useRef(null);
+  const [remainingExp, setRemainingExp] = useState(0);
   const [currentSliderValue, setCurrentSliderValue] = useState(
     +props.currentLvl + 1
   );
 
   useEffect(() => {
-    // Ensure that the ref is defined before attaching an event listener
     if (sliderRef.current) {
       sliderRef.current.addEventListener("input", handleSliderChange);
     }
 
+    calculateExpUntilNextLevel();
     // Clean up the event listener when the component unmounts
     return () => {
       if (sliderRef.current) {
@@ -25,6 +26,7 @@ const TargetLevel = (props) => {
   const handleSliderChange = (event) => {
     const newValue = +event.target.value;
     setCurrentSliderValue(newValue);
+    updateExpToGo(newValue);
   };
 
   const calculateExpUntilNextLevel = () => {
@@ -34,10 +36,25 @@ const TargetLevel = (props) => {
     const nextLevelStartExp = osrsXpTable[currentLvl + 1];
 
     const remainder = nextLevelStartExp - currentExp;
-    return remainder;
+    setRemainingExp(remainder);
   };
 
-  const remainder = calculateExpUntilNextLevel();
+  const updateExpToGo = (newValue) => {
+    const currentLvl = +props.currentLvl;
+    const currentExpToLvl = remainingExp;
+    const selectedLevel = newValue;
+
+    const currentExp = props.skillsExp[props.skillName];
+    console.log("Current Exp", currentExp);
+
+    const xpRequiredForSelectedSkill = osrsXpTable[selectedLevel];
+
+    console.log("xpRequiredForSelectedSkill", xpRequiredForSelectedSkill);
+
+    const expDifference = xpRequiredForSelectedSkill - currentExp;
+    setRemainingExp(expDifference);
+    console.log("Exp difference", expDifference);
+  };
 
   return (
     <div className={stl.modal}>
@@ -48,7 +65,7 @@ const TargetLevel = (props) => {
         </div>
         <div className={stl.remainderRow}>
           <span className={stl.requiredExp}>
-            {remainder.toLocaleString()} {""}EXP Remaining
+            {remainingExp.toLocaleString()} {""}EXP Remaining
           </span>
         </div>
       </div>
