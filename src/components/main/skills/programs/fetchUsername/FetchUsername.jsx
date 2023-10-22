@@ -70,13 +70,13 @@ const FetchUsername = (props) => {
   };
 
   return (
-    <div className={stl.fetchUserBox}>
+    <form className={stl.fetchUserBox}>
       <span className={stl.enterUsername}>Enter Username</span>
       <input type="text" className={stl.nameInput} ref={nameRef}></input>
       <button className={stl.usernameCta} onClick={handleNameRegister}>
         <FontAwesomeIcon icon={faArrowLeft} className={stl.goArrow} />
       </button>
-    </div>
+    </form>
   );
 };
 
