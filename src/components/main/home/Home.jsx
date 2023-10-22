@@ -7,17 +7,14 @@ import welcometxt from "../../../assets/Welcometxt.png";
 import LoginBox from "./loginbox/LoginBox";
 import UserBox from "./userbox/UserBox";
 
-const Home = () => {
-  const [skills, setSkills] = useState(null);
-  const [skillsExp, setSkillsExp] = useState(null);
+const Home = (props) => {
   const [skillsFetched, setSkillsFetched] = useState(false);
-  const [playerName, setPlayerName] = useState(null);
 
   useEffect(() => {
-    if (skills || skillsExp) {
+    if (props.skills || props.skillsExp) {
       setSkillsFetched(true);
     }
-  }, [skills, skillsExp]);
+  }, [props.skills, props.skillsExp]);
 
   return (
     <div className={stl.modal}>
@@ -35,16 +32,16 @@ const Home = () => {
 
         {skillsFetched ? (
           <UserBox
-            skills={skills}
-            skillsExp={skillsExp}
-            playerName={playerName}
+            skills={props.skills}
+            skillsExp={props.skillsExp}
+            playerName={props.playerName}
             switchTab={setSkillsFetched}
           />
         ) : (
           <LoginBox
-            setSkills={setSkills}
-            setSkillsExp={setSkillsExp}
-            setPlayerName={setPlayerName}
+            setSkills={props.setSkills}
+            setSkillsExp={props.setSkillsExp}
+            setPlayerName={props.setPlayerName}
           />
         )}
       </div>
