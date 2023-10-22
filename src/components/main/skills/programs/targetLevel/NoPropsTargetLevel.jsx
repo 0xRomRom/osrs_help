@@ -3,30 +3,16 @@ import { osrsXpTable } from "../../../../../utils/playerStats";
 import { useRef, useEffect, useState } from "react";
 
 const NoPropsTargetLevel = () => {
-  const sliderRef = useRef(2);
   const [remainingExp, setRemainingExp] = useState(83);
-  const [currentSliderValue, setCurrentSliderValue] = useState(2);
   const [currentLevel, setCurrentLevel] = useState(1);
   const [currentExp, setCurrentExp] = useState(0);
 
-  useEffect(() => {
-    if (sliderRef.current) {
-      sliderRef.current.addEventListener("input", handleSliderChange);
-    }
+  const currentLvlRef = useRef(currentLevel); // Initialize with the current level
 
-    calculateExpUntilNextLevel();
-    return () => {
-      if (sliderRef.current) {
-        sliderRef.current.removeEventListener("input", handleSliderChange);
-      }
-    };
-  }, []);
-
-  const handleSliderChange = (event) => {
-    const newValue = +event.target.value;
-    setCurrentSliderValue(newValue);
-    setCurrentLevel(newValue);
-    updateExpToGo(newValue);
+  const updateCurrentLvl = () => {
+    // Update the ref's current value with the new input value
+    currentLvlRef.current = parseInt(currentLvlRef.current, 10); // Parse as an integer
+    setCurrentLevel(currentLvlRef.current);
   };
 
   const calculateExpUntilNextLevel = () => {
@@ -49,31 +35,29 @@ const NoPropsTargetLevel = () => {
 
   return (
     <div className={stl.modal}>
+      <div className={stl.userLvlBox}>
+        <div className={stl.levelRow}>
+          <div className={stl.targetRow}>
+            <span className={stl.targetlvl}>Current level:</span>
+            <input
+              type="text"
+              value={currentLvlRef.current}
+              className={stl.currentLvlInput}
+              onChange={updateCurrentLvl}
+            />
+          </div>
+        </div>
+      </div>
       <div className={stl.userDefined}>
         <div className={stl.levelRow}>
           <div className={stl.targetRow}>
             <span className={stl.targetlvl}>Target level:</span>
-            <span className={stl.wantedLvl}>{currentSliderValue}</span>
+            <span className={stl.wantedLvl}>{99}</span>
           </div>
           <div className={stl.remainderRow}>
             <span className={stl.requiredExp}>
               {remainingExp.toLocaleString()} {""}EXP Remaining
             </span>
-          </div>
-        </div>
-        <div className={stl.sliderBox}>
-          <input
-            type="range"
-            className={stl.rangeSlider}
-            min={2}
-            max={99}
-            ref={sliderRef}
-          ></input>
-          <div className={stl.valuerow}>
-            <span className={`${stl.sliderValue} ${stl.minval}`}>
-              {currentLevel}
-            </span>
-            <span className={`${stl.sliderValue} ${stl.maxval}`}>99</span>
           </div>
         </div>
       </div>
