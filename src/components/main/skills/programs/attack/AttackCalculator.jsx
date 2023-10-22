@@ -3,8 +3,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import attackIcon from "../../../../../assets/skillicons/Attack.webp";
 
-const AttackCalculator = () => {
-  const handleMenuSwitch = () => {};
+const AttackCalculator = (props) => {
+  const handleMenuSwitch = () => {
+    props.setSkillClicked(false);
+    props.setClickedSkill("");
+  };
 
   return (
     <div className={stl.modal}>

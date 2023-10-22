@@ -38,7 +38,14 @@ const SkillsTab = () => {
 
   return (
     <>
-      {clickedSkill === "attack" ? <AttackCalculator /> : ""}
+      {clickedSkill === "attack" ? (
+        <AttackCalculator
+          setSkillClicked={setSkillClicked}
+          setClickedSkill={setClickedSkill}
+        />
+      ) : (
+        ""
+      )}
       {!skillClicked && (
         <div className={stl.modal}>
           <div className={stl.modalInner}>
