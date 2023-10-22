@@ -46,9 +46,7 @@ const SkillsTab = (props) => {
           skillsExp={props.skillsExp}
           playerName={props.playerName}
         />
-      ) : (
-        ""
-      )}
+      ) : null}
       {!skillClicked && (
         <div className={stl.modal}>
           <div className={stl.modalInner}>
