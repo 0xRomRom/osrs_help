@@ -21,16 +21,23 @@ const AttackCalculator = (props) => {
         <img src={attackIcon} alt="Attack Level" className={stl.skillImg} />
         <span className={stl.skillTitle}>Attack</span>
         <div className={stl.userStatsBox}>
-          <span className={stl.playerName}>{props.playerName}</span>
-          <span className={stl.playerName}>Level {props.skills["attack"]}</span>
-          <span className={stl.playerName}>
-            <CalculateRemainderExp
-              skillname={"attack"}
-              currentLvl={props.skills["attack"]}
-              currentExp={props.skillsExp}
-              className={stl.remainder}
-            />
-          </span>
+          <div className={stl.userBlock}>
+            <span className={stl.playerName}>{props.playerName}</span>
+            <span className={stl.playerLvl}>
+              Level {props.skills["attack"]}
+            </span>
+          </div>
+          <div className={stl.remainderBlock}>
+            <span className={stl.expToGo}>Xp till level</span>
+            <span className={stl.remaining}>
+              <CalculateRemainderExp
+                skillname={"attack"}
+                currentLvl={props.skills["attack"]}
+                currentExp={props.skillsExp}
+                className={stl.remainder}
+              />
+            </span>
+          </div>
         </div>
       </div>
     </div>

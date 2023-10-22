@@ -15,7 +15,7 @@ const CalculateRemainderExp = (props) => {
 
   const remainder = calculateExpUntilNextLevel();
 
-  return <span>{remainder}</span>;
+  return <>{remainder}</>;
 };
 
 export default CalculateRemainderExp;
