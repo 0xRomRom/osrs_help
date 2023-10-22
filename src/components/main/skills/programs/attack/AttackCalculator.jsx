@@ -4,6 +4,7 @@ import { faArrowLeft, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import attackIcon from "../../../../../assets/skillicons/Attack.webp";
 import CalculateRemainderExp from "./../../../../../utils/calculateRemainderExp";
 import FetchUsername from "../fetchUsername/FetchUsername";
+import TargetLevel from "../targetLevel/TargetLevel";
 
 const AttackCalculator = (props) => {
   const handleMenuSwitch = () => {
@@ -68,6 +69,7 @@ const AttackCalculator = (props) => {
           />
         )}
       </div>
+      <TargetLevel />
     </div>
   );
 };
