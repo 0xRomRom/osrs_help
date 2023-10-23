@@ -37,11 +37,12 @@ const NoPropsTargetLevel = () => {
 
   const updateCurrentExp = (e) => {
     const newValue = e.target.value;
-    const currentMinExp = osrsXpTable[selectedLvl];
-    const currentMaxExp = osrsXpTable[selectedLvl + 1];
 
-    const result = currentMaxExp - newValue;
-    console.log(result);
+    setCurrentExp(parseInt(newValue));
+
+    const remainder = parseInt(osrsXpTable[targetLevel]) - parseInt(newValue);
+    const result = remainder > 0 ? remainder : "?";
+    setRemainingExp(result);
   };
 
   const calcXpToGo = () => {
@@ -79,7 +80,7 @@ const NoPropsTargetLevel = () => {
                 <input
                   type="text"
                   className={stl.curExpInput}
-                  value={currentExp}
+                  value={currentExp || ""}
                   onKeyDown={handleNumbersOnly}
                   onChange={updateCurrentExp}
                 />
