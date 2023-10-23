@@ -14,7 +14,7 @@ const NoPropsTargetLevel = () => {
   const handleNumbersOnly = (e) => {
     const key = e.key;
     if (
-      !/^[1-9]$/.test(key) && // Allow digits 1 to 9
+      !/^[0-9]$/.test(key) &&
       !["Backspace", "ArrowLeft", "ArrowRight", "Delete", "Tab"].includes(key)
     ) {
       e.preventDefault();
@@ -24,7 +24,10 @@ const NoPropsTargetLevel = () => {
   const updateSelectedLvl = (e) => {
     const newValue = e.target.value;
 
-    if (newValue === "" || parseInt(newValue) <= 98) {
+    if (
+      newValue === "" ||
+      (parseInt(newValue) > 0 && parseInt(newValue) <= 98)
+    ) {
       setSelectedLvl(parseInt(newValue));
       setTargetLevel(parseInt(newValue) + 1);
     }
