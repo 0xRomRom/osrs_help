@@ -3,15 +3,18 @@ import { osrsXpTable } from "../../../../../utils/playerStats";
 import { useRef, useEffect, useState } from "react";
 
 const NoPropsTargetLevel = () => {
-  const [remainingExp, setRemainingExp] = useState(83);
-  const [currentLevel, setCurrentLevel] = useState(1);
-  const [currentExp, setCurrentExp] = useState(0);
-  const [selectedLvl, setSelectedLvl] = useState(""); // Start with an empty string
+  const [remainingExp, setRemainingExp] = useState("");
+  const [selectedLvl, setSelectedLvl] = useState("");
+  const [targetLevel, setTargetLevel] = useState("");
+
+  useEffect(() => {
+    calcXpToGo();
+  }, [targetLevel]);
 
   const handleNumbersOnly = (e) => {
     const key = e.key;
     if (
-      !/^\d$/.test(key) &&
+      !/^[1-9]$/.test(key) && // Allow digits 1 to 9
       !["Backspace", "ArrowLeft", "ArrowRight", "Delete", "Tab"].includes(key)
     ) {
       e.preventDefault();
@@ -21,27 +24,23 @@ const NoPropsTargetLevel = () => {
   const updateSelectedLvl = (e) => {
     const newValue = e.target.value;
 
-    if (newValue === "" || parseInt(newValue) <= 99) {
-      setSelectedLvl(newValue);
+    if (newValue === "" || parseInt(newValue) <= 98) {
+      setSelectedLvl(parseInt(newValue));
+      setTargetLevel(parseInt(newValue) + 1);
     }
   };
 
-  const calculateExpUntilNextLevel = () => {
-    const currentLvl = currentLevel;
-    const currExp = currentExp;
-    const nextLevelStartExp = osrsXpTable[currentLvl + 1];
+  const calcXpToGo = () => {
+    if (selectedLvl === "") return;
+    if (selectedLvl === 99) {
+      setTargetLevel(99);
+      return;
+    }
 
-    const remainder = nextLevelStartExp - currExp;
-    setRemainingExp(remainder);
-  };
-
-  const updateExpToGo = (newValue) => {
-    const selectedLevel = newValue;
-    const currExp = currentExp;
-    const xpRequiredForSelectedSkill = osrsXpTable[selectedLevel];
-
-    const expDifference = xpRequiredForSelectedSkill - currExp;
-    setRemainingExp(expDifference);
+    const currLevelExp = osrsXpTable[selectedLvl];
+    const nextLevelExp = osrsXpTable[selectedLvl + 1];
+    const expDiff = +nextLevelExp - +currLevelExp;
+    setRemainingExp(+expDiff);
   };
 
   return (
@@ -55,7 +54,7 @@ const NoPropsTargetLevel = () => {
               className={stl.currentLvlInput}
               onKeyDown={handleNumbersOnly}
               onChange={updateSelectedLvl}
-              value={selectedLvl}
+              value={selectedLvl || ""}
             />
           </div>
         </div>
@@ -64,11 +63,12 @@ const NoPropsTargetLevel = () => {
         <div className={stl.levelRow}>
           <div className={stl.targetRow}>
             <span className={stl.targetlvl}>Target level:</span>
-            <span className={stl.wantedLvl}>{99}</span>
+            <span className={stl.wantedLvl}>{targetLevel || ""}</span>
           </div>
           <div className={stl.remainderRow}>
             <span className={stl.requiredExp}>
-              {remainingExp.toLocaleString()} {""}EXP Remaining
+              {remainingExp ? remainingExp.toLocaleString() : ""} {""}EXP
+              Remaining
             </span>
           </div>
         </div>
