@@ -3,9 +3,10 @@ import { osrsXpTable } from "../../../../../utils/playerStats";
 import { useRef, useEffect, useState } from "react";
 
 const NoPropsTargetLevel = () => {
-  const [remainingExp, setRemainingExp] = useState("");
-  const [selectedLvl, setSelectedLvl] = useState("");
-  const [targetLevel, setTargetLevel] = useState("");
+  const [remainingExp, setRemainingExp] = useState(0);
+  const [selectedLvl, setSelectedLvl] = useState(1);
+  const [targetLevel, setTargetLevel] = useState(2);
+  const [currentExp, setCurrentExp] = useState(0);
 
   useEffect(() => {
     calcXpToGo();
@@ -30,7 +31,17 @@ const NoPropsTargetLevel = () => {
     ) {
       setSelectedLvl(parseInt(newValue));
       setTargetLevel(parseInt(newValue) + 1);
+      setCurrentExp(+osrsXpTable[parseInt(newValue)]);
     }
+  };
+
+  const updateCurrentExp = (e) => {
+    const newValue = e.target.value;
+    const currentMinExp = osrsXpTable[selectedLvl];
+    const currentMaxExp = osrsXpTable[selectedLvl + 1];
+
+    const result = currentMaxExp - newValue;
+    console.log(result);
   };
 
   const calcXpToGo = () => {
@@ -43,7 +54,8 @@ const NoPropsTargetLevel = () => {
     const currLevelExp = osrsXpTable[selectedLvl];
     const nextLevelExp = osrsXpTable[selectedLvl + 1];
     const expDiff = +nextLevelExp - +currLevelExp;
-    setRemainingExp(+expDiff);
+
+    setRemainingExp(expDiff);
   };
 
   return (
@@ -51,22 +63,38 @@ const NoPropsTargetLevel = () => {
       <div className={stl.userLvlBox}>
         <div className={stl.levelRow}>
           <div className={stl.targetRow}>
-            <span className={stl.targetlvl}>Current level:</span>
-            <input
-              type="text"
-              className={stl.currentLvlInput}
-              onKeyDown={handleNumbersOnly}
-              onChange={updateSelectedLvl}
-              value={selectedLvl || ""}
-            />
+            <div className={stl.currLvlRow}>
+              <span className={stl.targetlvl}>Current level:</span>
+              <input
+                type="text"
+                className={stl.currentLvlInput}
+                onKeyDown={handleNumbersOnly}
+                onChange={updateSelectedLvl}
+                value={selectedLvl || ""}
+              />
+            </div>
+            {selectedLvl && (
+              <div className={stl.xpDiv}>
+                <span className={stl.toGoExp}>Exp:</span>
+                <input
+                  type="text"
+                  className={stl.curExpInput}
+                  value={currentExp}
+                  onKeyDown={handleNumbersOnly}
+                  onChange={updateCurrentExp}
+                />
+              </div>
+            )}
           </div>
         </div>
       </div>
       <div className={stl.userDefined}>
         <div className={stl.levelRow}>
           <div className={stl.targetRow}>
-            <span className={stl.targetlvl}>Target level:</span>
-            <span className={stl.wantedLvl}>{targetLevel || ""}</span>
+            <span className={stl.targetlvl}>
+              Target level:{" "}
+              <span className={stl.wantedLvl}>{targetLevel || ""}</span>
+            </span>
           </div>
           <div className={stl.remainderRow}>
             <span className={stl.requiredExp}>
