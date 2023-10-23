@@ -6,13 +6,24 @@ const NoPropsTargetLevel = () => {
   const [remainingExp, setRemainingExp] = useState(83);
   const [currentLevel, setCurrentLevel] = useState(1);
   const [currentExp, setCurrentExp] = useState(0);
+  const [selectedLvl, setSelectedLvl] = useState(""); // Start with an empty string
 
-  const currentLvlRef = useRef(currentLevel); // Initialize with the current level
+  const handleNumbersOnly = (e) => {
+    const key = e.key;
+    if (
+      !/^\d$/.test(key) &&
+      !["Backspace", "ArrowLeft", "ArrowRight", "Delete", "Tab"].includes(key)
+    ) {
+      e.preventDefault();
+    }
+  };
 
-  const updateCurrentLvl = () => {
-    // Update the ref's current value with the new input value
-    currentLvlRef.current = parseInt(currentLvlRef.current, 10); // Parse as an integer
-    setCurrentLevel(currentLvlRef.current);
+  const updateSelectedLvl = (e) => {
+    const newValue = e.target.value;
+
+    if (newValue === "" || parseInt(newValue) <= 99) {
+      setSelectedLvl(newValue);
+    }
   };
 
   const calculateExpUntilNextLevel = () => {
@@ -41,9 +52,10 @@ const NoPropsTargetLevel = () => {
             <span className={stl.targetlvl}>Current level:</span>
             <input
               type="text"
-              value={currentLvlRef.current}
               className={stl.currentLvlInput}
-              onChange={updateCurrentLvl}
+              onKeyDown={handleNumbersOnly}
+              onChange={updateSelectedLvl}
+              value={selectedLvl}
             />
           </div>
         </div>
