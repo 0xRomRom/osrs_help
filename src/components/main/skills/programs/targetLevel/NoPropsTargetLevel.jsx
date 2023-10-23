@@ -10,7 +10,7 @@ const NoPropsTargetLevel = () => {
 
   useEffect(() => {
     calcXpToGo();
-  }, [targetLevel]);
+  }, [selectedLvl]);
 
   const handleNumbersOnly = (e) => {
     const key = e.key;
@@ -35,12 +35,24 @@ const NoPropsTargetLevel = () => {
     }
   };
 
+  const updateTargetLvl = (e) => {
+    const newValue = e.target.value;
+
+    if (newValue === "" || parseInt(newValue) <= 99) {
+      setTargetLevel(parseInt(newValue));
+      const maths = +osrsXpTable[parseInt(newValue)] - +currentExp;
+      const result = parseInt(maths) > 0 ? parseInt(maths) : "?";
+      setRemainingExp(result);
+    }
+  };
+
   const updateCurrentExp = (e) => {
     const newValue = e.target.value;
 
     setCurrentExp(parseInt(newValue));
 
     const remainder = parseInt(osrsXpTable[targetLevel]) - parseInt(newValue);
+
     const result = remainder > 0 ? remainder : "?";
     setRemainingExp(result);
   };
@@ -94,7 +106,13 @@ const NoPropsTargetLevel = () => {
           <div className={stl.targetRow}>
             <span className={stl.targetlvl}>
               Target level:{" "}
-              <span className={stl.wantedLvl}>{targetLevel || ""}</span>
+              <input
+                type="text"
+                className={stl.currentLvlInput}
+                onKeyDown={handleNumbersOnly}
+                onChange={updateTargetLvl}
+                value={targetLevel || ""}
+              />
             </span>
           </div>
           <div className={stl.remainderRow}>
