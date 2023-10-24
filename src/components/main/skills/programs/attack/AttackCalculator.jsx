@@ -6,6 +6,7 @@ import CalculateRemainderExp from "./../../../../../utils/calculateRemainderExp"
 import FetchUsername from "../fetchUsername/FetchUsername";
 import TargetLevel from "../targetLevel/TargetLevel";
 import NoPropsTargetLevel from "../targetLevel/NoPropsTargetLevel";
+import NPCGrid from "./npcgrid/NPCGrid";
 
 const AttackCalculator = (props) => {
   const handleMenuSwitch = () => {
@@ -81,6 +82,7 @@ const AttackCalculator = (props) => {
       ) : (
         <NoPropsTargetLevel />
       )}
+      <NPCGrid />
     </div>
   );
 };

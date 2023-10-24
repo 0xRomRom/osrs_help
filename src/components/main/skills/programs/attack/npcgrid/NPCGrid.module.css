@@ -1,0 +1,36 @@
+.grid {
+  position: relative;
+  width: 100%;
+  height: 31rem;
+  background-color: rgb(29, 29, 26);
+  padding: 1rem;
+}
+
+.typeRow {
+  width: 100%;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+.resultGrid {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+.row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rowItem {
+  width: 25%;
+  color: white;
+}
