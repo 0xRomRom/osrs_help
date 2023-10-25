@@ -7,24 +7,33 @@
 .imageBox {
   position: relative;
   width: 100%;
-  max-height: 20rem;
+  height: 12.5rem;
   overflow: hidden;
+  background: url("../../../assets/wallpapers/Barrows.webp");
+  background-size: cover;
+  background-position: 20% 29%;
+  background-repeat: no-repeat;
+  border-radius: 0.8rem;
+  filter: brightness(0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .bannerimage {
   width: 75%;
   margin: 0 auto;
-  position: relative;
+  position: absolute;
   height: 100%;
   border-top-left-radius: 0.4rem;
   border-top-right-radius: 0.4rem;
 }
 
 .welcometxt {
-  position: relative;
-  width: 95%;
-  left: 2.5%;
-  margin-top: 0.5rem;
+  /* position: absolute; */
+  width: 96%;
+  max-width: 1300px;
+  filter: brightness(1.24);
 }
 
 .introtext {

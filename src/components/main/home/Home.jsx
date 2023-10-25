@@ -19,9 +19,8 @@ const Home = (props) => {
   return (
     <div className={stl.modal}>
       <div className={stl.imageBox}>
-        <img src={barrows} alt="Banner" className={stl.bannerimage} />
+        <img src={welcometxt} alt="Welcome Text" className={stl.welcometxt} />
       </div>
-      <img src={welcometxt} alt="Welcome Text" className={stl.welcometxt} />
       <div className={stl.modalbottom}>
         <p className={stl.introtext}>
           A central place for OSRS tools.
