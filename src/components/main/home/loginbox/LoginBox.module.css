@@ -2,11 +2,15 @@
   color: white;
   font-size: 18px;
   padding: 2rem;
-  width: 40%;
+  width: 500px;
+  max-width: 500px;
   background-color: rgb(32, 46, 57);
   margin: 1rem;
   margin-left: 0rem;
   border-radius: 0.8rem;
+  padding-bottom: 2.75rem;
+  display: flex;
+  gap: 1rem;
 }
 
 .loginbg {
@@ -58,10 +62,8 @@
 
 .connectionSvg {
   width: 150px;
-  position: absolute;
+  position: relative;
   color: white;
-  left: 20rem;
-  top: 3rem;
 }
 
 .getStarted {

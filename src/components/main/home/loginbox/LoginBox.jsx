@@ -76,11 +76,6 @@ const LoginBox = (props) => {
   return (
     <div className={stl.userbox}>
       <form>
-        <img
-          src={connectionLogo}
-          alt="Connection Logo"
-          className={stl.connectionSvg}
-        />
         <h2 className={stl.getStarted}>
           Get started by <br />
           entering your username
@@ -102,6 +97,11 @@ const LoginBox = (props) => {
           </button>
         </div>
       </form>
+      <img
+        src={connectionLogo}
+        alt="Connection Logo"
+        className={stl.connectionSvg}
+      />
     </div>
   );
 };
