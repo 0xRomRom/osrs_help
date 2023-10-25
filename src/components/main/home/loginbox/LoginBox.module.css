@@ -1,27 +1,12 @@
 .userbox {
-  width: 75%;
-  height: 18rem;
-  padding-left: 8.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
-  background: url("../../../../assets/wallpapers/Loginscreen.webp");
-  background-repeat: no-repeat;
-  background-size: cover;
-  margin-right: 0.5rem;
-  border-radius: 0.2rem;
-}
-
-form {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
-  /* border: 1px solid blue; */
-  position: relative;
-  margin-top: 1.5rem;
-  height: 5rem;
+  color: white;
+  font-size: 18px;
+  padding: 2rem;
+  width: 40%;
+  background-color: rgb(32, 46, 57);
+  margin: 1rem;
+  margin-left: 0rem;
+  border-radius: 0.8rem;
 }
 
 .loginbg {
@@ -37,18 +22,12 @@ form {
   height: 2rem;
   background-color: transparent;
   border: none;
-  border-bottom: 2px solid rgb(211, 210, 210);
+  border-bottom: 2px solid gray;
   outline: none;
   color: white;
-  padding-left: 0.2rem;
+  padding-left: 0.3rem;
   font-size: 14px;
-  width: 5.5rem;
-}
-
-label {
-  position: relative;
-  z-index: 10;
-  color: rgb(221, 218, 218);
+  width: 8rem;
 }
 
 .cta {
@@ -60,10 +39,10 @@ label {
   cursor: pointer;
   position: relative;
   /* background: linear-gradient(130deg, brown, red); */
-  border-radius: 0.2rem;
+  border-radius: 0.5rem;
   color: white;
-  background-color: transparent;
-  border: 2px solid black;
+  background-color: rgb(112, 176, 31);
+  margin-left: 1rem;
 }
 
 .cta:active {
@@ -75,4 +54,28 @@ label {
   color: red;
   font-size: 14px;
   margin: 0.25rem 0rem 0.2rem 0rem;
+}
+
+.connectionSvg {
+  width: 150px;
+  position: absolute;
+  color: white;
+  left: 20rem;
+  top: 3rem;
+}
+
+.getStarted {
+  font-size: 2rem;
+  font-weight: 800;
+  display: block;
+  z-index: 10;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputRow {
+  margin-top: 2rem;
 }

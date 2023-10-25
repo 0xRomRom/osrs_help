@@ -1,13 +1,14 @@
 .userbox {
-  width: 75%;
-  height: 18rem;
+  color: white;
+  font-size: 18px;
+  padding: 2rem;
+  width: 40%;
+  background-color: rgb(32, 46, 57);
+  margin: 1rem;
+  margin-left: 0rem;
+  border-radius: 0.8rem;
   display: flex;
-  background: url("../../../../assets/wallpapers/Loginmodal.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  margin-right: 0.5rem;
-  border-radius: 0.2rem;
-  user-select: none;
+  gap: 2rem;
 }
 
 .leftblock {
@@ -22,13 +23,16 @@
   color: white;
   display: block;
   text-align: center;
-  margin-top: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
   font-size: 20px;
 }
 
 .playerImg {
   height: calc(100% - 80px);
   position: relative;
+  border-radius: 0.4rem;
+  margin-bottom: 1rem;
 }
 
 .combatlvl {

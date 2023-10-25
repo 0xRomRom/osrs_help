@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import stl from "./LoginBox.module.css";
 import { playerStats } from "../../../../utils/playerStats.js";
+import connectionLogo from "../../../../assets/icons/Connection.svg";
 
 const LoginBox = (props) => {
   const usernameRef = useRef(null);
@@ -75,18 +76,31 @@ const LoginBox = (props) => {
   return (
     <div className={stl.userbox}>
       <form>
-        <label>
-          Username:
-          <input type="text" className={stl.nameinput} ref={usernameRef} />
-        </label>
-        {error && <span className={stl.notFound}>Username not found</span>}
-        <button
-          className={stl.cta}
-          onClick={fetchUserData}
-          disabled={loading ? true : false}
-        >
-          {loading ? "Loading" : "Get Stats"}
-        </button>
+        <img
+          src={connectionLogo}
+          alt="Connection Logo"
+          className={stl.connectionSvg}
+        />
+        <h2 className={stl.getStarted}>
+          Get started by <br />
+          entering your username
+        </h2>
+        <div className={stl.inputRow}>
+          <input
+            type="text"
+            className={stl.nameinput}
+            ref={usernameRef}
+            placeholder="username"
+          />
+          {error && <span className={stl.notFound}>Username not found</span>}
+          <button
+            className={stl.cta}
+            onClick={fetchUserData}
+            disabled={loading ? true : false}
+          >
+            {loading ? "Loading" : "Get Stats"}
+          </button>
+        </div>
       </form>
     </div>
   );

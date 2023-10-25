@@ -22,13 +22,6 @@ const Home = (props) => {
         <img src={welcometxt} alt="Welcome Text" className={stl.welcometxt} />
       </div>
       <div className={stl.modalbottom}>
-        <p className={stl.introtext}>
-          A central place for OSRS tools.
-          <br />
-          <br />
-          Get started quickly by fetching your account stats.
-        </p>
-
         {skillsFetched ? (
           <UserBox
             skills={props.skills}

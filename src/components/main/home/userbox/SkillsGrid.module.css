@@ -4,8 +4,8 @@
   height: 100%;
   /* background-color: red; */
   padding-top: 2.1rem;
-  padding-left: 1.45rem;
-  padding-right: 1.59rem;
+  padding-left: 1.32rem;
+  padding-right: 1.69rem;
   /* border: 1px solid red; */
   display: flex;
   flex-direction: column;
@@ -32,39 +32,44 @@
   /* background-color: rgba(0, 128, 0, 0.61); */
 }
 
+.row1 {
+  position: relative;
+  top: 13px;
+}
+
 .row2 {
   position: relative;
-  top: 1px;
+  top: 20px;
 }
 
 .row3 {
   position: relative;
-  top: 1px;
+  top: 29px;
 }
 
 .row4 {
   position: relative;
-  top: 2px;
+  top: 38px;
 }
 
 .row5 {
   position: relative;
-  top: 2px;
+  top: 47px;
 }
 
 .row6 {
   position: relative;
-  top: 3px;
+  top: 55px;
 }
 
 .row7 {
   position: relative;
-  top: 4px;
+  top: 63px;
 }
 
 .row8 {
   position: relative;
-  top: 4px;
+  top: 71px;
 }
 
 .lvlIcon {
