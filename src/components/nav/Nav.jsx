@@ -11,6 +11,7 @@ const Nav = (props) => {
   const handleTabSwitch = (tab, path) => {
     props.setActiveTab(tab);
     props.setMainState(path);
+    props.setSubState(null);
   };
 
   return (
