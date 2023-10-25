@@ -1,5 +1,5 @@
 import stl from "./Nav.module.css";
-import logo from "../../assets/OSRSHELP.png";
+import logo from "../../assets/characters/Ancient_staff_equipped_male.webp";
 import hometeleport from "../../assets/icons/Hometeleport.webp";
 import stats from "../../assets/icons/Stats.webp";
 import combatoptions from "../../assets/icons/Combatoptions.webp";
@@ -14,7 +14,10 @@ const Nav = (props) => {
 
   return (
     <div className={stl.modal}>
-      <img src={logo} alt="OSRS Help logo" className={stl.logo} />
+      <div className={stl.logo}>
+        <img src={logo} alt="OSRS Help logo" className={stl.logoIcon} />
+        <span className={stl.logoSpan}>OSRS Help</span>
+      </div>
       <nav className={stl.nav}>
         <ul className={stl.navlist}>
           <li
