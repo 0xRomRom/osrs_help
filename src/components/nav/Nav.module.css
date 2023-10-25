@@ -28,7 +28,7 @@
 
 .navlist {
   position: relative;
-  padding: 3rem 0.5rem;
+  padding: 3rem 1rem;
   list-style-type: none;
   display: flex;
   flex-direction: column;
@@ -36,7 +36,7 @@
 }
 
 .navitem {
-  color: rgb(214, 212, 212);
+  color: rgb(87, 100, 109);
   padding: 0.5rem 0rem;
   font-weight: 800;
   border-radius: 0.2rem;
@@ -46,17 +46,7 @@
   align-items: center;
   gap: 10px;
   cursor: pointer;
-  transition: all 0.5s ease-in-out;
   user-select: none;
-}
-
-.navitem:hover {
-  background-color: red;
-  background: linear-gradient(
-    130deg,
-    rgba(165, 42, 42, 0.7),
-    rgba(255, 0, 0, 0.7)
-  );
 }
 
 .icon {
@@ -64,10 +54,7 @@
 }
 
 .active {
-  background-color: red;
-  background: linear-gradient(130deg, brown, red);
-}
-.active:hover {
-  background-color: red;
-  background: linear-gradient(130deg, brown, red);
+  background-color: rgb(16, 27, 35);
+  color: white;
+  /* background: linear-gradient(130deg, brown, red); */
 }
