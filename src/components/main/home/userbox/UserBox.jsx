@@ -45,6 +45,7 @@ const UserBox = (props) => {
 
   const handleMenuSwitch = () => {
     props.switchTab(false);
+    props.setPlayerName(null);
   };
 
   return (

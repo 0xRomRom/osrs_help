@@ -27,6 +27,7 @@ const Home = (props) => {
             skills={props.skills}
             skillsExp={props.skillsExp}
             playerName={props.playerName}
+            setPlayerName={props.setPlayerName}
             switchTab={setSkillsFetched}
           />
         ) : (

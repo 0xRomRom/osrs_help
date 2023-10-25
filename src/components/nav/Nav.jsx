@@ -18,6 +18,15 @@ const Nav = (props) => {
         <img src={logo} alt="OSRS Help logo" className={stl.logoIcon} />
         <span className={stl.logoSpan}>OSRS Help</span>
       </div>
+
+      <div className={stl.loggedUser}>
+        {props.playerName && (
+          <>
+            <div className={stl.blueDot}></div>
+            <span className={stl.loggedInUser}>{props.playerName}</span>
+          </>
+        )}
+      </div>
       <nav className={stl.nav}>
         <ul className={stl.navlist}>
           <li

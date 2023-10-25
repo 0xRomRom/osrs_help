@@ -10,7 +10,11 @@ const App = () => {
   const [playerName, setPlayerName] = useState(null);
   return (
     <div className={stl.app}>
-      <Nav setActiveTab={setActiveTab} activeTab={activeTab} />
+      <Nav
+        setActiveTab={setActiveTab}
+        activeTab={activeTab}
+        playerName={playerName}
+      />
       <Main
         activeTab={activeTab}
         setSkills={setSkills}
