@@ -8,10 +8,13 @@ const App = () => {
   const [skills, setSkills] = useState(null);
   const [skillsExp, setSkillsExp] = useState(null);
   const [playerName, setPlayerName] = useState(null);
+
+  const [mainState, setMainState] = useState("Home");
   return (
     <div className={stl.app}>
       <Nav
         setActiveTab={setActiveTab}
+        setMainState={setMainState}
         activeTab={activeTab}
         playerName={playerName}
       />
@@ -23,6 +26,7 @@ const App = () => {
         skillsExp={skillsExp}
         setPlayerName={setPlayerName}
         playerName={playerName}
+        mainState={mainState}
       />
     </div>
   );

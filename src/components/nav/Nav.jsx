@@ -8,8 +8,9 @@ import xptable from "../../assets/icons/Xptable.webp";
 import donate from "../../assets/icons/Donate.webp";
 
 const Nav = (props) => {
-  const handleTabSwitch = (tab) => {
+  const handleTabSwitch = (tab, path) => {
     props.setActiveTab(tab);
+    props.setMainState(path);
   };
 
   return (
@@ -33,7 +34,7 @@ const Nav = (props) => {
             className={`${stl.navitem} ${
               props.activeTab === "home" ? stl.active : ""
             }`}
-            onClick={() => handleTabSwitch("home")}
+            onClick={() => handleTabSwitch("home", "Home")}
           >
             <img
               src={hometeleport}
@@ -46,7 +47,7 @@ const Nav = (props) => {
             className={`${stl.navitem} ${
               props.activeTab === "skills" ? stl.active : ""
             }`}
-            onClick={() => handleTabSwitch("skills")}
+            onClick={() => handleTabSwitch("skills", "Skill Calculators")}
           >
             <img src={stats} alt="Skills Icon" className={stl.icon} />
             Skill Calculators
@@ -55,16 +56,16 @@ const Nav = (props) => {
             className={`${stl.navitem} ${
               props.activeTab === "combat" ? stl.active : ""
             }`}
-            onClick={() => handleTabSwitch("combat")}
+            onClick={() => handleTabSwitch("combat", "Combat Calculators")}
           >
             <img src={combatoptions} alt="Combat Icon" className={stl.icon} />
-            Combat Calculators
+            Combat Calculator
           </li>
           <li
             className={`${stl.navitem} ${
               props.activeTab === "gear" ? stl.active : ""
             }`}
-            onClick={() => handleTabSwitch("gear")}
+            onClick={() => handleTabSwitch("gear", "Gear Calculator")}
           >
             <img src={gear} alt="Gear Icon" className={stl.icon} />
             Gear Calculator
@@ -73,7 +74,7 @@ const Nav = (props) => {
             className={`${stl.navitem} ${
               props.activeTab === "xp" ? stl.active : ""
             }`}
-            onClick={() => handleTabSwitch("xp")}
+            onClick={() => handleTabSwitch("xp", "XP Table")}
           >
             <img src={xptable} alt="XP Icon" className={stl.icon} />
             XP Table
@@ -82,7 +83,7 @@ const Nav = (props) => {
             className={`${stl.navitem} ${
               props.activeTab === "donate" ? stl.active : ""
             }`}
-            onClick={() => handleTabSwitch("donate")}
+            onClick={() => handleTabSwitch("donate", "Donate")}
           >
             <img src={donate} alt="Donate Icon" className={stl.icon} />
             Donate
