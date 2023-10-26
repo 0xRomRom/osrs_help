@@ -22,6 +22,7 @@ const App = () => {
       />
       <Main
         activeTab={activeTab}
+        setActiveTab={setActiveTab}
         setSkills={setSkills}
         skills={skills}
         setSkillsExp={setSkillsExp}

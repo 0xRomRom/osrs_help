@@ -7,7 +7,11 @@ const Main = (props) => {
   return (
     <div className={stl.main}>
       <div className={stl.adBar}>[ Advertisements ]</div>
-      <Pagination mainState={props.mainState} subState={props.subState} />
+      <Pagination
+        mainState={props.mainState}
+        subState={props.subState}
+        setSubState={props.setSubState}
+      />
       <div className={stl.content}>
         {props.activeTab === "home" && (
           <Home
@@ -28,6 +32,7 @@ const Main = (props) => {
             setPlayerName={props.setPlayerName}
             playerName={props.playerName}
             setSubState={props.setSubState}
+            subState={props.subState}
           />
         )}
       </div>

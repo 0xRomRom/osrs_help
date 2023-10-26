@@ -530,7 +530,7 @@ const SkillsGrid = (props) => {
         <div className={stl.skillLvl}>
           <span className={stl.totalLvl}>
             Total level:
-            <br /> 2023
+            <br /> {props.skills["overall"]}
           </span>
         </div>
       </div>

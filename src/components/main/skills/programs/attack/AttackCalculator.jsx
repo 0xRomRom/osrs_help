@@ -12,7 +12,6 @@ const AttackCalculator = (props) => {
   const handleMenuSwitch = () => {
     props.setSkillClicked(false);
     props.setClickedSkill("");
-    props.setSubState(null);
   };
 
   const handleUserReset = () => {

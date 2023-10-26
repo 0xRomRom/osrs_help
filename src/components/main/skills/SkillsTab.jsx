@@ -33,14 +33,14 @@ const SkillsTab = (props) => {
   const [clickedSkill, setClickedSkill] = useState("");
 
   const handleTabOpen = (skill, path) => {
-    setSkillClicked(true);
+    setSkillClicked(!skillClicked);
     setClickedSkill(skill);
     props.setSubState(path);
   };
 
   return (
     <>
-      {clickedSkill === "attack" ? (
+      {clickedSkill === "attack" && props.subState ? (
         <AttackCalculator
           setSkillClicked={setSkillClicked}
           setClickedSkill={setClickedSkill}
