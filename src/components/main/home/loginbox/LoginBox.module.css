@@ -49,10 +49,6 @@
   margin-left: 1rem;
 }
 
-.cta:active {
-  background-color: black;
-}
-
 .notFound {
   position: relative;
   color: red;
