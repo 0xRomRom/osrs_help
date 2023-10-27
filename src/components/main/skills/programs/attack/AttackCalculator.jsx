@@ -12,7 +12,7 @@ import { useEffect } from "react";
 
 const AttackCalculator = (props) => {
   const handleMenuSwitch = () => {
-    props.setClickedSkill("");
+    props.setSubState(null);
   };
 
   const handleUserReset = () => {

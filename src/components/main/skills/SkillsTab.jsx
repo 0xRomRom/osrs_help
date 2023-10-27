@@ -44,9 +44,10 @@ const SkillsTab = (props) => {
           setSkillsExp={props.setSkillsExp}
           setPlayerName={props.setPlayerName}
           setSubState={props.setSubState}
-          subState={props.subState}
         />
-      ) : null}
+      ) : (
+        ""
+      )}
 
       {props.subState === "Defence" ? (
         <DefenceCalculator
@@ -56,6 +57,7 @@ const SkillsTab = (props) => {
           setSkills={props.setSkills}
           setSkillsExp={props.setSkillsExp}
           setPlayerName={props.setPlayerName}
+          setSubState={props.setSubState}
         />
       ) : null}
 
