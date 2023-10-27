@@ -29,19 +29,14 @@ import AttackCalculator from "../skills/programs/attack/AttackCalculator";
 import DefenceCalculator from "../skills/programs/defence/DefenceCalculator";
 
 const SkillsTab = (props) => {
-  const [clickedSkill, setClickedSkill] = useState("");
-
-  const handleTabOpen = (skill, path) => {
-    setClickedSkill(skill);
+  const handleTabOpen = (path) => {
     props.setSubState(path);
   };
 
   return (
     <>
-      {clickedSkill === "attack" && props.subState === "Attack" ? (
+      {props.subState === "Attack" ? (
         <AttackCalculator
-          clickedSkill={clickedSkill}
-          setClickedSkill={setClickedSkill}
           skills={props.skills}
           skillsExp={props.skillsExp}
           playerName={props.playerName}
@@ -53,9 +48,8 @@ const SkillsTab = (props) => {
         />
       ) : null}
 
-      {clickedSkill === "defence" ? (
+      {props.subState === "Defence" ? (
         <DefenceCalculator
-          setClickedSkill={setClickedSkill}
           skills={props.skills}
           skillsExp={props.skillsExp}
           playerName={props.playerName}
@@ -70,14 +64,14 @@ const SkillsTab = (props) => {
           <div className={stl.modalInner}>
             <div
               className={`${stl.skill} ${stl.attack}`}
-              onClick={() => handleTabOpen("attack", "Attack")}
+              onClick={() => handleTabOpen("Attack")}
             >
               <img src={attackIcon} alt="Attack Icon" className={stl.iconImg} />
               <span className={stl.skillName}>Attack</span>
             </div>
             <div
               className={`${stl.skill} ${stl.defence}`}
-              onClick={() => handleTabOpen("defence", "Defence")}
+              onClick={() => handleTabOpen("Defence")}
             >
               <img
                 src={defenceIcon}
@@ -88,7 +82,7 @@ const SkillsTab = (props) => {
             </div>
             <div
               className={`${stl.skill} ${stl.strength}`}
-              onClick={() => handleTabOpen("strength", "Strength")}
+              onClick={() => handleTabOpen("Strength")}
             >
               <img
                 src={strengthIcon}
@@ -99,7 +93,7 @@ const SkillsTab = (props) => {
             </div>
             <div
               className={`${stl.skill} ${stl.hitpoints}`}
-              onClick={() => handleTabOpen("hitpoints", "Hitpoints")}
+              onClick={() => handleTabOpen("Hitpoints")}
             >
               <img
                 src={hitpointsIcon}
@@ -110,28 +104,28 @@ const SkillsTab = (props) => {
             </div>
             <div
               className={`${stl.skill} ${stl.ranged}`}
-              onClick={() => handleTabOpen("ranged", "Ranged")}
+              onClick={() => handleTabOpen("Ranged")}
             >
               <img src={rangedIcon} alt="Ranged Icon" className={stl.iconImg} />
               <span className={stl.skillName}>Ranged</span>
             </div>
             <div
               className={`${stl.skill} ${stl.prayer}`}
-              onClick={() => handleTabOpen("prayer", "Prayer")}
+              onClick={() => handleTabOpen("Prayer")}
             >
               <img src={prayerIcon} alt="Prayer Icon" className={stl.iconImg} />
               <span className={`${stl.skillName} ${stl.black}`}>Prayer</span>
             </div>
             <div
               className={`${stl.skill} ${stl.magic}`}
-              onClick={() => handleTabOpen("magic", "Magic")}
+              onClick={() => handleTabOpen("Magic")}
             >
               <img src={magicIcon} alt="Magic Icon" className={stl.iconImg} />
               <span className={stl.skillName}>Magic</span>
             </div>
             <div
               className={`${stl.skill} ${stl.cooking}`}
-              onClick={() => handleTabOpen("cooking", "Cooking")}
+              onClick={() => handleTabOpen("Cooking")}
             >
               <img
                 src={cookingIcon}
@@ -142,7 +136,7 @@ const SkillsTab = (props) => {
             </div>
             <div
               className={`${stl.skill} ${stl.woodcutting}`}
-              onClick={() => handleTabOpen("woodcutting", "Woodcutting")}
+              onClick={() => handleTabOpen("Woodcutting")}
             >
               <img
                 src={woodcuttingIcon}
@@ -153,7 +147,7 @@ const SkillsTab = (props) => {
             </div>
             <div
               className={`${stl.skill} ${stl.fletching}`}
-              onClick={() => handleTabOpen("fletching", "Fletching")}
+              onClick={() => handleTabOpen("Fletching")}
             >
               <img
                 src={fletchingIcon}
@@ -164,7 +158,7 @@ const SkillsTab = (props) => {
             </div>
             <div
               className={`${stl.skill} ${stl.fishing}`}
-              onClick={() => handleTabOpen("fishing", "Fishing")}
+              onClick={() => handleTabOpen("Fishing")}
             >
               <img
                 src={fishingIcon}
@@ -175,7 +169,7 @@ const SkillsTab = (props) => {
             </div>
             <div
               className={`${stl.skill} ${stl.firemaking}`}
-              onClick={() => handleTabOpen("firemaking", "Firemaking")}
+              onClick={() => handleTabOpen("Firemaking")}
             >
               <img
                 src={firemakingIcon}
@@ -186,7 +180,7 @@ const SkillsTab = (props) => {
             </div>
             <div
               className={`${stl.skill} ${stl.crafting}`}
-              onClick={() => handleTabOpen("crafting", "Crafting")}
+              onClick={() => handleTabOpen("Crafting")}
             >
               <img
                 src={craftingIcon}
@@ -197,7 +191,7 @@ const SkillsTab = (props) => {
             </div>
             <div
               className={`${stl.skill} ${stl.smithing}`}
-              onClick={() => handleTabOpen("smithing", "Smithing")}
+              onClick={() => handleTabOpen("Smithing")}
             >
               <img
                 src={smithingIcon}
@@ -208,14 +202,14 @@ const SkillsTab = (props) => {
             </div>
             <div
               className={`${stl.skill} ${stl.mining}`}
-              onClick={() => handleTabOpen("mining", "Mining")}
+              onClick={() => handleTabOpen("Mining")}
             >
               <img src={miningIcon} alt="Mining Icon" className={stl.iconImg} />
               <span className={stl.skillName}>Mining</span>
             </div>
             <div
               className={`${stl.skill} ${stl.herblore}`}
-              onClick={() => handleTabOpen("herblore", "Herblore")}
+              onClick={() => handleTabOpen("Herblore")}
             >
               <img
                 src={herbloreIcon}
@@ -226,7 +220,7 @@ const SkillsTab = (props) => {
             </div>
             <div
               className={`${stl.skill} ${stl.agility}`}
-              onClick={() => handleTabOpen("agility", "Agility")}
+              onClick={() => handleTabOpen("Agility")}
             >
               <img
                 src={agilityIcon}
@@ -237,7 +231,7 @@ const SkillsTab = (props) => {
             </div>
             <div
               className={`${stl.skill} ${stl.thieving}`}
-              onClick={() => handleTabOpen("thieving", "Thieving")}
+              onClick={() => handleTabOpen("Thieving")}
             >
               <img
                 src={thievingIcon}
@@ -248,14 +242,14 @@ const SkillsTab = (props) => {
             </div>
             <div
               className={`${stl.skill} ${stl.slayer}`}
-              onClick={() => handleTabOpen("slayer", "Slayer")}
+              onClick={() => handleTabOpen("Slayer")}
             >
               <img src={slayerIcon} alt="Slayer Icon" className={stl.iconImg} />
               <span className={stl.skillName}>Slayer</span>
             </div>
             <div
               className={`${stl.skill} ${stl.farming}`}
-              onClick={() => handleTabOpen("farming", "Farming")}
+              onClick={() => handleTabOpen("Farming")}
             >
               <img
                 src={farmingIcon}
@@ -266,7 +260,7 @@ const SkillsTab = (props) => {
             </div>
             <div
               className={`${stl.skill} ${stl.runecrafting}`}
-              onClick={() => handleTabOpen("runecrafting", "Runecrafting")}
+              onClick={() => handleTabOpen("Runecrafting")}
             >
               <img
                 src={runecraftingIcon}
@@ -277,14 +271,14 @@ const SkillsTab = (props) => {
             </div>
             <div
               className={`${stl.skill} ${stl.hunter}`}
-              onClick={() => handleTabOpen("hunter", "Hunter")}
+              onClick={() => handleTabOpen("Hunter")}
             >
               <img src={hunterIcon} alt="Hunter Icon" className={stl.iconImg} />
               <span className={stl.skillName}>Hunter</span>
             </div>
             <div
               className={`${stl.skill} ${stl.construction}`}
-              onClick={() => handleTabOpen("construction", "Construction")}
+              onClick={() => handleTabOpen("Construction")}
             >
               <img
                 src={constructionIcon}
