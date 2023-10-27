@@ -29,20 +29,18 @@ import AttackCalculator from "../skills/programs/attack/AttackCalculator";
 import DefenceCalculator from "../skills/programs/defence/DefenceCalculator";
 
 const SkillsTab = (props) => {
-  const [skillClicked, setSkillClicked] = useState(false);
   const [clickedSkill, setClickedSkill] = useState("");
 
   const handleTabOpen = (skill, path) => {
-    setSkillClicked(!skillClicked);
     setClickedSkill(skill);
     props.setSubState(path);
   };
 
   return (
     <>
-      {clickedSkill === "attack" && props.subState ? (
+      {clickedSkill === "attack" && props.subState === "Attack" ? (
         <AttackCalculator
-          setSkillClicked={setSkillClicked}
+          clickedSkill={clickedSkill}
           setClickedSkill={setClickedSkill}
           skills={props.skills}
           skillsExp={props.skillsExp}
@@ -51,12 +49,12 @@ const SkillsTab = (props) => {
           setSkillsExp={props.setSkillsExp}
           setPlayerName={props.setPlayerName}
           setSubState={props.setSubState}
+          subState={props.subState}
         />
       ) : null}
 
       {clickedSkill === "defence" ? (
         <DefenceCalculator
-          setSkillClicked={setSkillClicked}
           setClickedSkill={setClickedSkill}
           skills={props.skills}
           skillsExp={props.skillsExp}
@@ -67,7 +65,7 @@ const SkillsTab = (props) => {
         />
       ) : null}
 
-      {!skillClicked && (
+      {props.subState === null && (
         <div className={stl.modal}>
           <div className={stl.modalInner}>
             <div

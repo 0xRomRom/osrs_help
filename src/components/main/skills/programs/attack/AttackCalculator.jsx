@@ -8,9 +8,10 @@ import TargetLevel from "../targetLevel/TargetLevel";
 import NoPropsTargetLevel from "../targetLevel/NoPropsTargetLevel";
 import NPCGrid from "./npcgrid/NPCGrid";
 
+import { useEffect } from "react";
+
 const AttackCalculator = (props) => {
   const handleMenuSwitch = () => {
-    props.setSkillClicked(false);
     props.setClickedSkill("");
   };
 
