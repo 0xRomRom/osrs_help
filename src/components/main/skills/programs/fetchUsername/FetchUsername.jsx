@@ -46,10 +46,10 @@ const FetchUsername = (props) => {
   const handleNameRegister = async (e) => {
     const user = nameRef.current.value;
     e.preventDefault();
+    if (!user || user === "") return;
     setLoading(true);
     setError(false);
 
-    if (!user || user === "") return;
     props.setPlayerName(user);
     const filteredUser = user.replaceAll(" ", "_");
     const obj = { user: filteredUser };

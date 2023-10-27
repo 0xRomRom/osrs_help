@@ -4,12 +4,14 @@
 }
 
 .userDefined {
-  width: 100%;
   height: 6rem;
-  /* background-color: blue; */
-  /* border-bottom: 1px solid red; */
   display: flex;
   user-select: none;
+  background-color: rgba(32, 46, 57, 0.671);
+  margin: 1rem 0rem;
+  border-radius: 0.8rem;
+  padding: 0rem 1rem;
+  margin-left: 1rem;
 }
 
 .targetlvl {
@@ -17,9 +19,8 @@
   height: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   font-size: 25px;
-  margin-left: 1rem;
 }
 
 .targetRow {
@@ -42,7 +43,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  margin-left: 2.5rem;
 }
 .wantedLvl {
   color: white;
@@ -61,18 +61,18 @@
   justify-content: center;
   align-items: center;
   font-size: 17px;
-  margin-left: 1rem;
 }
 
 .userLvlBox {
-  /* width: 100%; */
-  width: 25rem;
   height: 6rem;
   /* background-color: blue; */
   /* border-bottom: 1px solid red; */
   display: flex;
   user-select: none;
-  margin: 0rem 2rem;
+  background-color: rgba(32, 46, 57, 0.671);
+  margin: 1rem 0rem;
+  border-radius: 0.8rem;
+  padding: 0rem 1rem;
 }
 
 .sliderValue {
@@ -132,7 +132,6 @@
 
 .xpDiv {
   position: relative;
-  left: 1rem;
 }
 
 .toGoExp {
