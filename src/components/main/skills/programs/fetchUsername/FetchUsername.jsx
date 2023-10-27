@@ -77,8 +77,12 @@ const FetchUsername = (props) => {
 
   return (
     <form className={stl.fetchUserBox}>
-      <span className={stl.enterUsername}>Enter Username</span>
-      <input type="text" className={stl.nameInput} ref={nameRef}></input>
+      <input
+        type="text"
+        className={stl.nameInput}
+        ref={nameRef}
+        placeholder="Username"
+      ></input>
       <button
         className={stl.cta}
         onClick={handleNameRegister}

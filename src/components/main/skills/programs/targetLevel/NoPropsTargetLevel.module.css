@@ -65,12 +65,14 @@
 }
 
 .userLvlBox {
-  width: 100%;
+  /* width: 100%; */
+  width: 25rem;
   height: 6rem;
   /* background-color: blue; */
   /* border-bottom: 1px solid red; */
   display: flex;
   user-select: none;
+  margin: 0rem 2rem;
 }
 
 .sliderValue {
@@ -123,7 +125,7 @@
   outline: none;
   border: none;
   border-bottom: 1px solid gray;
-  width: 10rem;
+  width: 9.1rem;
   left: 1rem;
   color: rgb(192, 188, 188);
 }

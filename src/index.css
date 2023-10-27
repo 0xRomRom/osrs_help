@@ -33,3 +33,29 @@ code {
   margin: 0;
   padding: 0;
 }
+
+/* Define the scrollbar track */
+::-webkit-scrollbar {
+  width: 12px;
+  background-color: rgb(155, 151, 151);
+  border-radius: 6px;
+}
+
+/* Define the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background: rgb(32, 46, 57);
+  border-radius: 6px; /* Adjust this value for more or less rounding */
+}
+
+/* Define the scrollbar track on Firefox */
+/* scrollbar-width: thin; */
+/* scrollbar-color: rgb(32, 46, 57) transparent; */
+
+/* Optionally, you can style the scrollbar track and arrows */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}

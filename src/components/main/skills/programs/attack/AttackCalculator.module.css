@@ -132,8 +132,8 @@
 
 .trashcan {
   position: relative;
-  margin: 0 auto;
-  margin-top: 0.6rem;
+  margin-top: 0.4rem;
+  margin-left: 2rem;
   font-size: 1.5rem;
   cursor: pointer;
   color: rgb(233, 227, 227);

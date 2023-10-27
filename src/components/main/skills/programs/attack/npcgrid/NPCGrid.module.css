@@ -2,8 +2,10 @@
   position: relative;
   width: 100%;
   height: 31rem;
-  background-color: rgb(29, 29, 26);
+  background-color: rgba(32, 46, 57, 0.671);
   padding: 1rem;
+  border-radius: 0.8rem;
+  padding-bottom: 2.5rem;
 }
 
 .typeRow {
@@ -11,6 +13,12 @@
   color: white;
   display: flex;
   justify-content: space-between;
+  padding-bottom: 10px;
+}
+
+.typeRow > span {
+  width: 25%;
+  text-align: center;
 }
 
 .resultGrid {
@@ -33,4 +41,5 @@
 .rowItem {
   width: 25%;
   color: white;
+  text-align: center;
 }
