@@ -43,3 +43,17 @@
   color: white;
   text-align: center;
 }
+
+.monsterRow {
+  text-align: left;
+  padding-left: 1.1rem;
+  /* background-color: red; */
+}
+
+.miniLogo {
+  width: 15px;
+}
+
+.monsterTitleRow {
+  text-align: left !important;
+}
