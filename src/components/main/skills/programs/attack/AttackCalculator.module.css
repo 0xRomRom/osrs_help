@@ -142,3 +142,11 @@
 .trashcan:hover {
   color: white;
 }
+
+.configRow {
+  position: relative;
+  width: 100%;
+  /* background-color: red; */
+  display: flex;
+  justify-content: flex-start;
+}

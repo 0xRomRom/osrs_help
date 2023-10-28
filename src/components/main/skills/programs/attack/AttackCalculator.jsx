@@ -7,8 +7,7 @@ import FetchUsername from "../fetchUsername/FetchUsername";
 import TargetLevel from "../targetLevel/TargetLevel";
 import NoPropsTargetLevel from "../targetLevel/NoPropsTargetLevel";
 import NPCGrid from "./npcgrid/NPCGrid";
-
-import { useEffect } from "react";
+import SearchFilter from "./SearchFilter";
 
 const AttackCalculator = (props) => {
   const handleMenuSwitch = () => {
@@ -72,17 +71,20 @@ const AttackCalculator = (props) => {
           />
         )}
       </div>
-      {arePropsDefined ? (
-        <TargetLevel
-          skills={props.skills}
-          skillsExp={props.skillsExp}
-          skillName={"attack"}
-          currentLvl={props.skills["attack"]}
-          currentExp={props.skillsExp}
-        />
-      ) : (
-        <NoPropsTargetLevel />
-      )}
+      <div className={stl.configRow}>
+        {arePropsDefined ? (
+          <TargetLevel
+            skills={props.skills}
+            skillsExp={props.skillsExp}
+            skillName={"attack"}
+            currentLvl={props.skills["attack"]}
+            currentExp={props.skillsExp}
+          />
+        ) : (
+          <NoPropsTargetLevel />
+        )}
+        <SearchFilter />
+      </div>
       <NPCGrid />
     </div>
   );
