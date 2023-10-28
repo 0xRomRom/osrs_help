@@ -21,7 +21,7 @@ const NPCGrid = (props) => {
           Member
         </span>
         <span>
-          <img src={healthLogo} alt="Health Logo" className={stl.miniLogo} />{" "}
+          <img src={healthLogo} alt="Health Logo" className={stl.miniLogo} />
           Hitpoints
         </span>
         <span>

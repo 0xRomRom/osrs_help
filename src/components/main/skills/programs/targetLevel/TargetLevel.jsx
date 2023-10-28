@@ -1,6 +1,6 @@
 import stl from "./TargetLevel.module.css";
 import { osrsXpTable } from "../../../../../utils/playerStats";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useCallback } from "react";
 
 const TargetLevel = (props) => {
   const sliderRef = useRef(null);
@@ -9,43 +9,49 @@ const TargetLevel = (props) => {
     +props.currentLvl + 1
   );
 
+  const updateExpToGo = useCallback(
+    (newValue) => {
+      const selectedLevel = newValue;
+      const currentExp = props.skillsExp[props.skillName];
+      const xpRequiredForSelectedSkill = osrsXpTable[selectedLevel];
+
+      const expDifference = xpRequiredForSelectedSkill - currentExp;
+      setRemainingExp(expDifference);
+    },
+    [props.skillsExp, props.skillName]
+  );
+
   useEffect(() => {
-    if (sliderRef.current) {
-      sliderRef.current.addEventListener("input", handleSliderChange);
+    const sliderElement = sliderRef.current;
+
+    const calculateExpUntilNextLevel = () => {
+      const skill = props.skillName;
+      const currentLvl = +props.currentLvl;
+      const currentExp = +props.currentExp[skill];
+      const nextLevelStartExp = osrsXpTable[currentLvl + 1];
+
+      const remainder = nextLevelStartExp - currentExp;
+      setRemainingExp(remainder);
+    };
+
+    const handleSliderChange = (event) => {
+      const newValue = +event.target.value;
+      setCurrentSliderValue(newValue);
+      updateExpToGo(newValue);
+    };
+
+    if (sliderElement) {
+      sliderElement.addEventListener("input", handleSliderChange);
     }
 
     calculateExpUntilNextLevel();
+
     return () => {
-      if (sliderRef.current) {
-        sliderRef.current.removeEventListener("input", handleSliderChange);
+      if (sliderElement) {
+        sliderElement.removeEventListener("input", handleSliderChange);
       }
     };
-  }, []);
-
-  const handleSliderChange = (event) => {
-    const newValue = +event.target.value;
-    setCurrentSliderValue(newValue);
-    updateExpToGo(newValue);
-  };
-
-  const calculateExpUntilNextLevel = () => {
-    const skill = props.skillName;
-    const currentLvl = +props.currentLvl;
-    const currentExp = +props.currentExp[skill];
-    const nextLevelStartExp = osrsXpTable[currentLvl + 1];
-
-    const remainder = nextLevelStartExp - currentExp;
-    setRemainingExp(remainder);
-  };
-
-  const updateExpToGo = (newValue) => {
-    const selectedLevel = newValue;
-    const currentExp = props.skillsExp[props.skillName];
-    const xpRequiredForSelectedSkill = osrsXpTable[selectedLevel];
-
-    const expDifference = xpRequiredForSelectedSkill - currentExp;
-    setRemainingExp(expDifference);
-  };
+  }, [updateExpToGo, props.skillName, props.currentLvl, props.currentExp]);
 
   const propsDefined =
     props && props.skills && props.skills[props.skillName] && props.skillsExp;
