@@ -5,7 +5,10 @@ import healthLogo from "../../../../../../assets/skillicons/Hitpoints.webp";
 import slayerLogo from "../../../../../../assets/skillicons/Slayer.png";
 import memberLogo from "../../../../../../assets/icons/Member.webp";
 
-const NPCGrid = () => {
+const NPCGrid = (props) => {
+  const filteredMonsters = monsterList.filter((monster) =>
+    monster.monster.toLowerCase().includes(props.searchState.toLowerCase())
+  );
   return (
     <div className={stl.grid}>
       <div className={stl.typeRow}>
@@ -27,7 +30,7 @@ const NPCGrid = () => {
         </span>
       </div>
       <div className={stl.resultGrid}>
-        {monsterList.map((monster) => {
+        {filteredMonsters.map((monster) => {
           return (
             <>
               <div className={stl.row}>

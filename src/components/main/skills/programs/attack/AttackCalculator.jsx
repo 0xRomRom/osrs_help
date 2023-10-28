@@ -8,8 +8,15 @@ import TargetLevel from "../targetLevel/TargetLevel";
 import NoPropsTargetLevel from "../targetLevel/NoPropsTargetLevel";
 import NPCGrid from "./npcgrid/NPCGrid";
 import SearchFilter from "./SearchFilter";
+import { useState, useEffect } from "react";
 
 const AttackCalculator = (props) => {
+  const [searchState, setSearchState] = useState("");
+
+  useEffect(() => {
+    console.log(searchState);
+  }, [searchState]);
+
   const handleMenuSwitch = () => {
     props.setSubState(null);
   };
@@ -83,9 +90,9 @@ const AttackCalculator = (props) => {
         ) : (
           <NoPropsTargetLevel />
         )}
-        <SearchFilter />
+        <SearchFilter setSearchState={setSearchState} />
       </div>
-      <NPCGrid />
+      <NPCGrid searchState={searchState} />
     </div>
   );
 };
