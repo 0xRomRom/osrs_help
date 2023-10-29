@@ -80,12 +80,12 @@ const NPCGrid = (props) => {
 
   const sortToGo = () => {
     if (toGoSorted) {
-      const sorter = monsterDB.sort((a, b) => +a.combat - +b.combat);
+      const sorter = monsterDB.sort((a, b) => +a.hp - +b.hp);
       setMonsterDB([...sorter]);
       setToGoSorted(!toGoSorted);
       return;
     } else {
-      const sorter = monsterDB.sort((a, b) => +b.combat - +a.combat);
+      const sorter = monsterDB.sort((a, b) => +b.hp - +a.hp);
       setMonsterDB([...sorter]);
       setToGoSorted(!toGoSorted);
     }
