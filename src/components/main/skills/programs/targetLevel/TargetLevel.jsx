@@ -13,9 +13,11 @@ const TargetLevel = (props) => {
   }, [currentSliderValue]);
 
   const handleSliderChange = (e) => {
-    setCurrentSliderValue(() => +e.target.value);
+    const value = +e.target.value;
+    if (value + 1 === 99) return;
+    setCurrentSliderValue(() => value);
     console.log(currentSliderValue);
-    updateExpToGo(+e.target.value);
+    updateExpToGo(value);
   };
 
   const updateExpToGo = (newValue) => {
@@ -38,7 +40,7 @@ const TargetLevel = (props) => {
           <div className={stl.levelRow}>
             <div className={stl.targetRow}>
               <span className={stl.targetlvl}>Target level:</span>
-              <span className={stl.wantedLvl}>{currentSliderValue + 1}</span>
+              <span className={stl.wantedLvl}>{currentSliderValue}</span>
             </div>
             <div className={stl.remainderRow}>
               <span className={stl.requiredExp}>
