@@ -5,18 +5,63 @@ import healthLogo from "../../../../../../assets/skillicons/Hitpoints.webp";
 import slayerLogo from "../../../../../../assets/skillicons/Slayer.png";
 import memberLogo from "../../../../../../assets/icons/Member.webp";
 
+import { useState, useEffect } from "react";
+
 const NPCGrid = (props) => {
-  const filteredMonsters = monsterList.filter((monster) =>
-    monster.monster.toLowerCase().includes(props.searchState.toLowerCase())
-  );
+  const [monsterDB, setMonsterDB] = useState(monsterList);
+  const [monsterSorted, setMonsterSorted] = useState(false);
+  const [memberSorted, setMemberSorted] = useState(false);
+
+  useEffect(() => {
+    filterMonsters();
+  }, [props.searchState]);
+
+  const filterMonsters = () => {
+    const filteredMonsters = monsterList.filter((monster) =>
+      monster.monster.toLowerCase().includes(props.searchState.toLowerCase())
+    );
+    setMonsterDB([...filteredMonsters]);
+  };
+
+  const sortMonsters = () => {
+    console.log(monsterDB);
+    if (monsterSorted) {
+      const sorter = monsterDB.sort((a, b) =>
+        a.monster.localeCompare(b.monster)
+      );
+      setMonsterSorted(!monsterSorted);
+      setMonsterDB([...sorter]);
+      return;
+    } else {
+      const sorter = monsterDB.sort((a, b) =>
+        b.monster.localeCompare(a.monster)
+      );
+      setMonsterSorted(!monsterSorted);
+      setMonsterDB([...sorter]);
+    }
+  };
+
+  const sortMembers = () => {
+    if (memberSorted) {
+      const sorter = monsterDB.sort((a, b) => a.member - b.member);
+      setMonsterDB([...sorter]);
+      setMemberSorted(!memberSorted);
+      return;
+    } else {
+      const sorter = monsterDB.sort((a, b) => b.member - a.member);
+      setMonsterDB([...sorter]);
+      setMemberSorted(!memberSorted);
+    }
+  };
+
   return (
     <div className={stl.grid}>
       <div className={stl.typeRow}>
-        <span className={stl.monsterTitleRow}>
+        <span className={stl.monsterTitleRow} onClick={sortMonsters}>
           <img src={attackLogo} alt="Attack Logo" className={stl.miniLogo} />{" "}
           Monster
         </span>
-        <span>
+        <span onClick={sortMembers}>
           <img src={memberLogo} alt="Member Logo" className={stl.miniLogo} />{" "}
           Member
         </span>
@@ -30,7 +75,7 @@ const NPCGrid = (props) => {
         </span>
       </div>
       <div className={stl.resultGrid}>
-        {filteredMonsters.map((monster) => {
+        {monsterDB.map((monster) => {
           return (
             <>
               <div className={stl.row}>
