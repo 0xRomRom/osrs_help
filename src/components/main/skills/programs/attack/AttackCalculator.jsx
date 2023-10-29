@@ -87,10 +87,14 @@ const AttackCalculator = (props) => {
             skillName={"attack"}
             currentLvl={props.skills["attack"]}
             currentExp={props.skillsExp}
-            setRemainderExp={setRemainingExp}
+            setRemainingExp={setRemainingExp}
+            remainingExp={remainingExp}
           />
         ) : (
-          <NoPropsTargetLevel setRemainingExp={setRemainingExp} />
+          <NoPropsTargetLevel
+            setRemainingExp={setRemainingExp}
+            remainingExp={remainingExp}
+          />
         )}
         <SearchFilter setSearchState={setSearchState} />
       </div>

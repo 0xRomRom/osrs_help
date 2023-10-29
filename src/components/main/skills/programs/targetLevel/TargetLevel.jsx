@@ -1,37 +1,42 @@
 import stl from "./TargetLevel.module.css";
 import { osrsXpTable } from "../../../../../utils/playerStats";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
-const TargetLevel = (props) => {
-  const [remainingExp, setRemainingExp] = useState(0);
-  const [currentSliderValue, setCurrentSliderValue] = useState(
-    +props.currentLvl + 1
-  );
-
-  useEffect(() => {
-    console.log(currentSliderValue);
-  }, [currentSliderValue]);
+const TargetLevel = ({
+  skills,
+  skillsExp,
+  skillName,
+  currentLvl,
+  currentExp,
+  setRemainingExp,
+  remainingExp,
+}) => {
+  const [currentSliderValue, setCurrentSliderValue] = useState(+currentLvl + 1);
 
   const handleSliderChange = (e) => {
     const value = +e.target.value;
-    if (value + 1 === 99) return;
     setCurrentSliderValue(() => value);
-    console.log(currentSliderValue);
     updateExpToGo(value);
   };
 
-  const updateExpToGo = (newValue) => {
-    const selectedLevel = newValue;
-    const currentExp = props.skillsExp[props.skillName];
-    const xpRequiredForSelectedSkill = osrsXpTable[selectedLevel];
+  const updateExpToGo = useCallback(
+    (newValue) => {
+      const selectedLevel = newValue;
+      const currentExp = skillsExp[skillName];
+      const xpRequiredForSelectedSkill = osrsXpTable[+selectedLevel];
 
-    const expDifference = xpRequiredForSelectedSkill - currentExp;
-    setRemainingExp(expDifference);
-    props.setRemainderExp(expDifference);
-  };
+      const expDifference = +xpRequiredForSelectedSkill - +currentExp;
+      console.log(expDifference);
+      setRemainingExp(expDifference);
+    },
+    [setRemainingExp, skillsExp, skillName]
+  );
 
-  const propsDefined =
-    props && props.skills && props.skills[props.skillName] && props.skillsExp;
+  useEffect(() => {
+    updateExpToGo(currentSliderValue);
+  }, [updateExpToGo, currentSliderValue]);
+
+  const propsDefined = skills && skills[skillName] && skillsExp;
 
   return (
     <div className={stl.modal}>
@@ -44,7 +49,7 @@ const TargetLevel = (props) => {
             </div>
             <div className={stl.remainderRow}>
               <span className={stl.requiredExp}>
-                {remainingExp.toLocaleString()} {""}EXP Remaining
+                {remainingExp.toLocaleString() || ""} {""}EXP Remaining
               </span>
             </div>
           </div>
@@ -52,14 +57,13 @@ const TargetLevel = (props) => {
             <input
               type="range"
               className={stl.rangeSlider}
-              min={+props.currentLvl + 1}
+              min={+currentLvl + 1}
               max={99}
-              // ref={sliderRef}
               onChange={handleSliderChange}
             ></input>
             <div className={stl.valuerow}>
               <span className={`${stl.sliderValue} ${stl.minval}`}>
-                {+props.currentLvl + 1}
+                {+currentLvl + 1}
               </span>
               <span className={`${stl.sliderValue} ${stl.maxval}`}>99</span>
             </div>

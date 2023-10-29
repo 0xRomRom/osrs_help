@@ -2,8 +2,7 @@ import stl from "./NoPropsTargetLevel.module.css";
 import { osrsXpTable } from "../../../../../utils/playerStats";
 import { useCallback, useEffect, useState } from "react";
 
-const NoPropsTargetLevel = (props) => {
-  const [remainingExp, setRemainingExp] = useState(0);
+const NoPropsTargetLevel = ({ setRemainingExp, remainingExp }) => {
   const [selectedLvl, setSelectedLvl] = useState(1);
   const [targetLevel, setTargetLevel] = useState(2);
   const [currentExp, setCurrentExp] = useState(0);
@@ -20,8 +19,7 @@ const NoPropsTargetLevel = (props) => {
     const expDiff = +nextLevelExp - +currLevelExp;
 
     setRemainingExp(expDiff);
-    props.setRemainingExp(expDiff);
-  }, [selectedLvl, props]);
+  }, [selectedLvl, setRemainingExp]);
 
   useEffect(() => {
     calcXpToGo();
