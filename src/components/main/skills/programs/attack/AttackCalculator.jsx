@@ -12,6 +12,7 @@ import { useState, useEffect } from "react";
 
 const AttackCalculator = (props) => {
   const [searchState, setSearchState] = useState("");
+  const [remainingExp, setRemainingExp] = useState(0);
 
   useEffect(() => {
     console.log(searchState);
@@ -86,13 +87,14 @@ const AttackCalculator = (props) => {
             skillName={"attack"}
             currentLvl={props.skills["attack"]}
             currentExp={props.skillsExp}
+            setRemainderExp={setRemainingExp}
           />
         ) : (
-          <NoPropsTargetLevel />
+          <NoPropsTargetLevel setRemainingExp={setRemainingExp} />
         )}
         <SearchFilter setSearchState={setSearchState} />
       </div>
-      <NPCGrid searchState={searchState} />
+      <NPCGrid searchState={searchState} remainingExp={remainingExp} />
     </div>
   );
 };

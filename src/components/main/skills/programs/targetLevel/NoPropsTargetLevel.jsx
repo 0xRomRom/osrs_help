@@ -1,16 +1,31 @@
 import stl from "./NoPropsTargetLevel.module.css";
 import { osrsXpTable } from "../../../../../utils/playerStats";
-import { useRef, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
-const NoPropsTargetLevel = () => {
+const NoPropsTargetLevel = (props) => {
   const [remainingExp, setRemainingExp] = useState(0);
   const [selectedLvl, setSelectedLvl] = useState(1);
   const [targetLevel, setTargetLevel] = useState(2);
   const [currentExp, setCurrentExp] = useState(0);
 
+  const calcXpToGo = useCallback(() => {
+    if (selectedLvl === "") return;
+    if (selectedLvl === 99) {
+      setTargetLevel(99);
+      return;
+    }
+
+    const currLevelExp = osrsXpTable[selectedLvl];
+    const nextLevelExp = osrsXpTable[selectedLvl + 1];
+    const expDiff = +nextLevelExp - +currLevelExp;
+
+    setRemainingExp(expDiff);
+    props.setRemainingExp(expDiff);
+  }, [selectedLvl, props]);
+
   useEffect(() => {
     calcXpToGo();
-  }, [selectedLvl]);
+  }, [selectedLvl, calcXpToGo]);
 
   const handleNumbersOnly = (e) => {
     const key = e.key;
@@ -55,20 +70,6 @@ const NoPropsTargetLevel = () => {
 
     const result = remainder > 0 ? remainder : "?";
     setRemainingExp(result);
-  };
-
-  const calcXpToGo = () => {
-    if (selectedLvl === "") return;
-    if (selectedLvl === 99) {
-      setTargetLevel(99);
-      return;
-    }
-
-    const currLevelExp = osrsXpTable[selectedLvl];
-    const nextLevelExp = osrsXpTable[selectedLvl + 1];
-    const expDiff = +nextLevelExp - +currLevelExp;
-
-    setRemainingExp(expDiff);
   };
 
   return (

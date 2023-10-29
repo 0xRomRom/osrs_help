@@ -5,7 +5,7 @@ import healthLogo from "../../../../../../assets/skillicons/Hitpoints.webp";
 import slayerLogo from "../../../../../../assets/skillicons/Slayer.png";
 import memberLogo from "../../../../../../assets/icons/Member.webp";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 const NPCGrid = (props) => {
   const [monsterDB, setMonsterDB] = useState(monsterList);
@@ -14,19 +14,28 @@ const NPCGrid = (props) => {
   const [combatSorted, setCombatSorted] = useState(false);
   const [toGoSorted, setToGoSorted] = useState(false);
 
-  useEffect(() => {
-    filterMonsters();
-  }, [props.searchState]);
+  const calculateMonstersToKill = useCallback(
+    (monster) => {
+      const expToGo = props.remainingExp;
+      const monsterExp = +monster * 4;
+      const result = Math.round(expToGo / monsterExp);
+      return result;
+    },
+    [props.remainingExp]
+  );
 
-  const filterMonsters = () => {
+  const filterMonsters = useCallback(() => {
     const filteredMonsters = monsterList.filter((monster) =>
       monster.monster.toLowerCase().includes(props.searchState.toLowerCase())
     );
     setMonsterDB([...filteredMonsters]);
-  };
+  }, [props.searchState]);
+
+  useEffect(() => {
+    filterMonsters();
+  }, [props.searchState, filterMonsters]);
 
   const sortMonsters = () => {
-    console.log(monsterDB);
     if (monsterSorted) {
       const sorter = monsterDB.sort((a, b) =>
         a.monster.localeCompare(b.monster)
@@ -114,7 +123,9 @@ const NPCGrid = (props) => {
                   {monster.member ? "Yes" : "No"}
                 </span>
                 <span className={stl.rowItem}>{monster.combat}</span>
-                <span className={stl.rowItem}>{monster.hp}</span>
+                <span className={stl.rowItem}>
+                  {calculateMonstersToKill(monster.hp).toLocaleString()}
+                </span>
               </div>
             </>
           );

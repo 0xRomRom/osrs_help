@@ -1,57 +1,32 @@
 import stl from "./TargetLevel.module.css";
 import { osrsXpTable } from "../../../../../utils/playerStats";
-import { useRef, useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 
 const TargetLevel = (props) => {
-  const sliderRef = useRef(null);
   const [remainingExp, setRemainingExp] = useState(0);
   const [currentSliderValue, setCurrentSliderValue] = useState(
     +props.currentLvl + 1
   );
 
-  const updateExpToGo = useCallback(
-    (newValue) => {
-      const selectedLevel = newValue;
-      const currentExp = props.skillsExp[props.skillName];
-      const xpRequiredForSelectedSkill = osrsXpTable[selectedLevel];
-
-      const expDifference = xpRequiredForSelectedSkill - currentExp;
-      setRemainingExp(expDifference);
-    },
-    [props.skillsExp, props.skillName]
-  );
-
   useEffect(() => {
-    const sliderElement = sliderRef.current;
+    console.log(currentSliderValue);
+  }, [currentSliderValue]);
 
-    const calculateExpUntilNextLevel = () => {
-      const skill = props.skillName;
-      const currentLvl = +props.currentLvl;
-      const currentExp = +props.currentExp[skill];
-      const nextLevelStartExp = osrsXpTable[currentLvl + 1];
+  const handleSliderChange = (e) => {
+    setCurrentSliderValue(() => +e.target.value);
+    console.log(currentSliderValue);
+    updateExpToGo(+e.target.value);
+  };
 
-      const remainder = nextLevelStartExp - currentExp;
-      setRemainingExp(remainder);
-    };
+  const updateExpToGo = (newValue) => {
+    const selectedLevel = newValue;
+    const currentExp = props.skillsExp[props.skillName];
+    const xpRequiredForSelectedSkill = osrsXpTable[selectedLevel];
 
-    const handleSliderChange = (event) => {
-      const newValue = +event.target.value;
-      setCurrentSliderValue(newValue);
-      updateExpToGo(newValue);
-    };
-
-    if (sliderElement) {
-      sliderElement.addEventListener("input", handleSliderChange);
-    }
-
-    calculateExpUntilNextLevel();
-
-    return () => {
-      if (sliderElement) {
-        sliderElement.removeEventListener("input", handleSliderChange);
-      }
-    };
-  }, [updateExpToGo, props.skillName, props.currentLvl, props.currentExp]);
+    const expDifference = xpRequiredForSelectedSkill - currentExp;
+    setRemainingExp(expDifference);
+    props.setRemainderExp(expDifference);
+  };
 
   const propsDefined =
     props && props.skills && props.skills[props.skillName] && props.skillsExp;
@@ -63,7 +38,7 @@ const TargetLevel = (props) => {
           <div className={stl.levelRow}>
             <div className={stl.targetRow}>
               <span className={stl.targetlvl}>Target level:</span>
-              <span className={stl.wantedLvl}>{currentSliderValue}</span>
+              <span className={stl.wantedLvl}>{currentSliderValue + 1}</span>
             </div>
             <div className={stl.remainderRow}>
               <span className={stl.requiredExp}>
@@ -77,7 +52,8 @@ const TargetLevel = (props) => {
               className={stl.rangeSlider}
               min={+props.currentLvl + 1}
               max={99}
-              ref={sliderRef}
+              // ref={sliderRef}
+              onChange={handleSliderChange}
             ></input>
             <div className={stl.valuerow}>
               <span className={`${stl.sliderValue} ${stl.minval}`}>
