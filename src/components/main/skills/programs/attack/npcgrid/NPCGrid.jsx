@@ -11,6 +11,8 @@ const NPCGrid = (props) => {
   const [monsterDB, setMonsterDB] = useState(monsterList);
   const [monsterSorted, setMonsterSorted] = useState(false);
   const [memberSorted, setMemberSorted] = useState(false);
+  const [combatSorted, setCombatSorted] = useState(false);
+  const [toGoSorted, setToGoSorted] = useState(false);
 
   useEffect(() => {
     filterMonsters();
@@ -54,6 +56,32 @@ const NPCGrid = (props) => {
     }
   };
 
+  const sortCombat = () => {
+    if (combatSorted) {
+      const sorter = monsterDB.sort((a, b) => +a.combat - +b.combat);
+      setMonsterDB([...sorter]);
+      setCombatSorted(!combatSorted);
+      return;
+    } else {
+      const sorter = monsterDB.sort((a, b) => +b.combat - +a.combat);
+      setMonsterDB([...sorter]);
+      setCombatSorted(!combatSorted);
+    }
+  };
+
+  const sortToGo = () => {
+    if (toGoSorted) {
+      const sorter = monsterDB.sort((a, b) => +a.combat - +b.combat);
+      setMonsterDB([...sorter]);
+      setToGoSorted(!toGoSorted);
+      return;
+    } else {
+      const sorter = monsterDB.sort((a, b) => +b.combat - +a.combat);
+      setMonsterDB([...sorter]);
+      setToGoSorted(!toGoSorted);
+    }
+  };
+
   return (
     <div className={stl.grid}>
       <div className={stl.typeRow}>
@@ -65,11 +93,11 @@ const NPCGrid = (props) => {
           <img src={memberLogo} alt="Member Logo" className={stl.miniLogo} />{" "}
           Member
         </span>
-        <span>
+        <span onClick={sortCombat}>
           <img src={healthLogo} alt="Health Logo" className={stl.miniLogo} />
-          Hitpoints
+          Combat
         </span>
-        <span>
+        <span onClick={sortToGo}>
           <img src={slayerLogo} alt="Slayer Logo" className={stl.miniLogo} /> To
           Go
         </span>
