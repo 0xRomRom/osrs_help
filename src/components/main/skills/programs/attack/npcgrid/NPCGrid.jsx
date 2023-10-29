@@ -18,8 +18,8 @@ const NPCGrid = (props) => {
     (monster) => {
       const expToGo = props.remainingExp;
       const monsterExp = +monster * 4;
-      const result = Math.round(expToGo / monsterExp);
-      return result;
+      const result = Math.ceil(expToGo / monsterExp);
+      return result ? result : "?";
     },
     [props.remainingExp]
   );
