@@ -33,7 +33,7 @@ const NPCGrid = (props) => {
 
   useEffect(() => {
     filterMonsters();
-  }, [props.searchState, filterMonsters]);
+  }, [filterMonsters]);
 
   const sortMonsters = () => {
     if (monsterSorted) {
