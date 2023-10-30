@@ -43,7 +43,7 @@ const StrengthCalculator = (props) => {
         {arePropsDefined ? (
           <div className={stl.userStatsBox}>
             <div className={stl.userBlock}>
-              <span className={stl.playerName}>{props?.playerName}</span>
+              <span className={stl.playerName}>{props.playerName}</span>
               <span className={stl.playerLvl}>
                 Level {props.skills["strength"]}
               </span>

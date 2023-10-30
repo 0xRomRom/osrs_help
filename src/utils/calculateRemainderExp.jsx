@@ -9,7 +9,8 @@ const CalculateRemainderExp = (props) => {
     const nextLevelStartExp = osrsXpTable[currentLvl + 1];
 
     const remainder = (nextLevelStartExp - currentExp).toLocaleString();
-    return remainder;
+    const result = isNaN(+remainder) ? "?" : result;
+    return result;
   };
 
   const remainder = calculateExpUntilNextLevel();

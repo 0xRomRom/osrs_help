@@ -49,7 +49,8 @@ const TargetLevel = ({
             </div>
             <div className={stl.remainderRow}>
               <span className={stl.requiredExp}>
-                {remainingExp.toLocaleString() || ""} {""}EXP Remaining
+                {isNaN(remainingExp) ? "?" : remainingExp.toLocaleString()} {""}
+                EXP Remaining
               </span>
             </div>
           </div>
