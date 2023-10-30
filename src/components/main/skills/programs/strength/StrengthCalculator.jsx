@@ -14,10 +14,6 @@ const StrengthCalculator = (props) => {
   const [searchState, setSearchState] = useState("");
   const [remainingExp, setRemainingExp] = useState(0);
 
-  useEffect(() => {
-    console.log(searchState);
-  }, [searchState]);
-
   const handleMenuSwitch = () => {
     props.setSubState(null);
   };

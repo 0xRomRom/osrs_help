@@ -8,8 +8,8 @@ const CalculateRemainderExp = (props) => {
     const currentExp = +props.currentExp[skill];
     const nextLevelStartExp = osrsXpTable[currentLvl + 1];
 
-    const remainder = (nextLevelStartExp - currentExp).toLocaleString();
-    const result = isNaN(+remainder) ? "?" : result;
+    const remainder = nextLevelStartExp - currentExp;
+    const result = isNaN(+remainder) ? "?" : remainder.toLocaleString();
     return result;
   };
 

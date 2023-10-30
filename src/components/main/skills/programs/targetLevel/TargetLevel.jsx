@@ -11,7 +11,9 @@ const TargetLevel = ({
   setRemainingExp,
   remainingExp,
 }) => {
-  const [currentSliderValue, setCurrentSliderValue] = useState(+currentLvl + 1);
+  const [currentSliderValue, setCurrentSliderValue] = useState(
+    +currentLvl + 1 > 99 ? 99 : +currentLvl + 1
+  );
 
   const handleSliderChange = (e) => {
     const value = +e.target.value;
@@ -26,8 +28,8 @@ const TargetLevel = ({
       const xpRequiredForSelectedSkill = osrsXpTable[+selectedLevel];
 
       const expDifference = +xpRequiredForSelectedSkill - +currentExp;
-      console.log(expDifference);
-      setRemainingExp(expDifference);
+      const result = +expDifference < 0 ? 0 : +expDifference;
+      setRemainingExp(result);
     },
     [setRemainingExp, skillsExp, skillName]
   );
@@ -45,7 +47,9 @@ const TargetLevel = ({
           <div className={stl.levelRow}>
             <div className={stl.targetRow}>
               <span className={stl.targetlvl}>Target level:</span>
-              <span className={stl.wantedLvl}>{currentSliderValue}</span>
+              <span className={stl.wantedLvl}>
+                {+currentLvl === 99 ? "None" : currentSliderValue}
+              </span>
             </div>
             <div className={stl.remainderRow}>
               <span className={stl.requiredExp}>
@@ -64,9 +68,11 @@ const TargetLevel = ({
             ></input>
             <div className={stl.valuerow}>
               <span className={`${stl.sliderValue} ${stl.minval}`}>
-                {+currentLvl + 1}
+                {+currentLvl === 99 ? 99 : +currentLvl + 1}
               </span>
-              <span className={`${stl.sliderValue} ${stl.maxval}`}>99</span>
+              <span className={`${stl.sliderValue} ${stl.maxval}`}>
+                {+currentLvl === 99 ? "" : 99}
+              </span>
             </div>
           </div>
         </div>
