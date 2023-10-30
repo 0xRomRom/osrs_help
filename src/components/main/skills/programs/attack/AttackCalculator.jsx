@@ -7,7 +7,7 @@ import FetchUsername from "../fetchUsername/FetchUsername";
 import TargetLevel from "../targetLevel/TargetLevel";
 import NoPropsTargetLevel from "../targetLevel/NoPropsTargetLevel";
 import NPCGrid from "./npcgrid/NPCGrid";
-import SearchFilter from "./SearchFilter";
+import SearchFilter from "../searchfilter/SearchFilter";
 import { useState, useEffect } from "react";
 
 const AttackCalculator = (props) => {
@@ -28,12 +28,7 @@ const AttackCalculator = (props) => {
     props.setSkillsExp(null);
   };
 
-  const arePropsDefined =
-    props &&
-    props.playerName &&
-    props.skills &&
-    props.skills["attack"] &&
-    props.skillsExp;
+  const arePropsDefined = props.skills;
 
   return (
     <div className={stl.modal}>

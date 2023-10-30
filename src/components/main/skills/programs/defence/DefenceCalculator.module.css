@@ -4,22 +4,17 @@
 }
 
 .topBar {
-  background: linear-gradient(
-    110deg,
-    white,
-    rgb(115, 136, 203),
-    rgba(115, 136, 203, 0.747)
-  );
-  border-bottom: 1px solid red;
+  /* background: linear-gradient(110deg, white, red, red, rgba(255, 0, 0, 0.747)); */
+  background-color: rgb(32, 46, 57);
   width: 100%;
   height: 6rem;
   padding-left: 6rem;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  border-top-left-radius: 0.3rem;
-  border-top-right-radius: 0.3rem;
+  border-radius: 0.8rem;
   user-select: none;
+  color: rgb(224, 214, 214);
 }
 
 .backArrow {
@@ -33,7 +28,7 @@
 }
 
 .backArrow:hover {
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
 }
 
 .skillImg {
@@ -52,7 +47,7 @@
   width: 100%;
   height: 100%;
   margin-left: 5rem;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   display: flex;
 }
 
@@ -92,10 +87,52 @@
   margin-top: 0.3rem;
 }
 
+.fetchUserBox {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin-left: 5rem;
+  padding-top: 1.25rem;
+}
+
+.nameInput {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  border-bottom: 1px solid white;
+  color: white;
+  /* font-family: RSFont; */
+  font-size: 1.25rem;
+  width: 7rem;
+  margin-top: 0.8rem;
+  margin-left: 0.8rem;
+}
+
+.enterUsername {
+  color: white;
+  font-size: 1.25rem;
+}
+
+.usernameCta {
+  margin-left: 0.5rem;
+  top: 0.5rem;
+  position: relative;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.goArrow {
+  font-size: 2rem;
+  transform: rotate(180deg);
+  color: black;
+}
+
 .trashcan {
   position: relative;
-  margin: 0 auto;
-  margin-top: 0.6rem;
+  margin-top: 0.4rem;
+  margin-left: 2rem;
   font-size: 1.5rem;
   cursor: pointer;
   color: rgb(233, 227, 227);
@@ -104,4 +141,12 @@
 
 .trashcan:hover {
   color: white;
+}
+
+.configRow {
+  position: relative;
+  width: 100%;
+  /* background-color: red; */
+  display: flex;
+  justify-content: flex-start;
 }

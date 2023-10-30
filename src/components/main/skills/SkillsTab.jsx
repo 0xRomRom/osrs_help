@@ -1,4 +1,3 @@
-import { useState } from "react";
 import stl from "./SkillsTab.module.css";
 
 import attackIcon from "../../../assets/skillicons/Attack.webp";
@@ -35,7 +34,7 @@ const SkillsTab = (props) => {
 
   return (
     <>
-      {props.subState === "Attack" ? (
+      {props.subState === "Attack" && (
         <AttackCalculator
           skills={props.skills}
           skillsExp={props.skillsExp}
@@ -45,11 +44,9 @@ const SkillsTab = (props) => {
           setPlayerName={props.setPlayerName}
           setSubState={props.setSubState}
         />
-      ) : (
-        ""
       )}
 
-      {props.subState === "Defence" ? (
+      {props.subState === "Defence" && (
         <DefenceCalculator
           skills={props.skills}
           skillsExp={props.skillsExp}
@@ -59,7 +56,7 @@ const SkillsTab = (props) => {
           setPlayerName={props.setPlayerName}
           setSubState={props.setSubState}
         />
-      ) : null}
+      )}
 
       {props.subState === null && (
         <div className={stl.modal}>
