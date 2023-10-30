@@ -91,7 +91,7 @@ const NoPropsTargetLevel = ({ setRemainingExp, remainingExp }) => {
                 <input
                   type="text"
                   className={stl.curExpInput}
-                  value={currentExp || ""}
+                  value={currentExp || 0}
                   onKeyDown={handleNumbersOnly}
                   onChange={updateCurrentExp}
                 />
